@@ -1,0 +1,126 @@
+
+html, body {
+	width: 100%;
+	font-size: 100%;
+	font-family: 'Roboto';
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+body {
+	background-color: #f1eaea;
+	font-size: 16px;
+	background-image: url("/static/images/body-background.jpg");
+/*	background-size: 300px 120px;
+ *		background-position: 0px 60px;*/
+	padding-bottom: 10px;
+}
+
+* {
+* 	margin: 0;
+* 		padding: 0;
+* 		}
+*
+* 		.header {
+* 			clear: left;
+* 				/*text-align: left;*/
+	background-color: #f1eaea;*/
+	color: black;
+	z-index: 1000;
+}
+
+.content {
+	padding: 14px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+.sticky + .content {
+  padding-top: 80px;
+}
+
+footer {
+   position:absolute;
+   bottom:0;
+   padding: 0;
+   width:100%;
+   height:60px;   /* Height of the footer */
+}
+
+input[type='text'],
+input[type='number'],
+textarea {
+	font-size: 16px;
+}
+/*li a:hover {
+ * 	background-color: lightgray;
+ * 	}*/
+input {
+	width: 90%;
+	max-width: 150px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	border: 1px solid lightgray;
+}
+td, th {
+	/*border: 1px solid gray;*/
+	text-align: left;
+	padding: 6px;
+	background-color: white;
+}
+table {
+	border-collapse: collapse;
+	margin: auto;
+	color: black;
+}
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+li {
+	display: inline;
+}
+li a {
+	display: inline-block;
+	color: #3f5a5a;
+	font-size: 1.2em;
+	text-align: center;
+	padding: 14px 23px;
+	text-decoration: none;
+}
+.boxedWhite {
+	/*border: 1px solid blue;*/
+	background-color: gray;
+	padding: 20px;
+}
+.boxHeader {
+	background-image: url("/static/images/bigprimes.png");
+	min-height: 100px;
+}
+
+label { display: inline-block; width: 210px; text-align: left; }
+.demo-card-wide.mdl-card {
+	align-items: center;
+	width: 90%;
+	max-width: 520px;
+	margin: auto;
+}
+.mdl-demo .mdl-layout__tab-bar {
+  padding: 0;
+  padding-left: 16px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+.mdl-textfield__input {
+	margin: auto;
+}
+

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rounding Techniques</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1e4a7c;
+            color: white;
+            text-align: center;
+            padding: 3px 3px;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            margin: 20px auto;
+            margin-top: 0px;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .materials a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .materials a:hover {
+            text-decoration: underline;
+        }
+            /* Define column widths */
+            colgroup col:first-child {
+            width: 30%;
+        }
+
+        colgroup col:nth-child(2) {
+            width: 40%;
+        }
+
+        colgroup col:last-child {
+            width: 30%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+    <div class="image-container">
+        <img src="course/cow_image.png" alt="A relaxation of an integer polytope." height="180px">
+    </div>
+        <h2>CS 599: Rounding Techniques in Approximation Algorithms</h2>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#homework">Homework</a>
+        <a href="#textbooks">Resources</a>
+        <a href="#schedule">Schedule</a>
+    </nav>
+
+    <div class="container">
+        <section id="info">
+            <h2>Course Information</h2>
+            <p><b>Instructor:</b> <a href="https://nathan-klein.github.io/">Nathan Klein</a></p>
+            <p><b>Lectures:</b> Tuesday and Thursday, 3:30 - 4:45pm</p>
+            <p><b>Office Hours:</b> Tuesday 1:30 - 3:30 and by appointment </p>
+            <p><b>Prerequisites:</b> Strong undergraduate-level knowledge of algorithms, linear algebra, and
+                probability. Some familiarity with linear programming and at least one of CS 530, 531, or 537 is
+                recommended but not required</p>
+            <p><b>Grading:</b> Three homework sets (25% each), scribe one lecture (15%), participation (10%) and an optional final project (discuss with me) that can replace your lowest homework score</p>
+            <p><b>Cow:</b> Point set from <a href="https://www.wolfram.com/mathematica/new-in-10/data-and-mesh-regions/convex-hulls.html">Mathematica</a></p>
+        </section>
+
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>We will survey a simple but powerful framework for designing approximation algorithms known as "Relax and
+                Round." Given a (possibly NP-Hard) discrete optimization problem, this framework first relaxes it into a
+                polynomial time solvable one over a continuous domain. It then solves this easier problem, whose
+                solution can have fractional coordinates: for example, it could assign a variable to be half true and
+                half false in a SAT formula. Below, in pink is the convex hull of the feasible solutions of a discrete
+                optimization problem. In purple is a relaxation of it.</p>
+            <div class="image-container">
+                <img src="course/Rounding2.png" alt="A relaxation of an integer polytope." height="210px">
+            </div>
+
+            <p>In the final step, we round this fractional solution (above in red) to an integer one (above in blue).
+                Our
+                goal will be to find a rounding procedure that, like a good translator, <b>finds an integer solution
+                    that
+                    approximately preserves the key properties of the fractional one</b> such as cost.
+                There are many beautiful methods known for performing this rounding step, which will be our main focus.
+                We will discuss many of them, such as the use of integral polytopes, iterative rounding, iterative
+                relaxation, and independent and dependent randomized rounding. The course will emphasize results from
+                the past decade with exciting open directions.</p>
+        </section>
+
+        <section id="homework">
+            <h2>Homework</h2>
+            <ul>
+                <li>Homework 1</li>
+            </ul>
+        </section>
+
+        <section id="textbooks">
+            <h2>Related Textbooks</h2>
+            <ul>
+                <li><a href="https://www.designofapproxalgs.com/download.php">The Design of Approximation Algorithms
+                        (Williamson-Shmoys)</a></li>
+                <li><a href="https://www.contrib.andrew.cmu.edu/~ravi/book.pdf">Iterative Methods in Combinatorial
+                        Optimization (Lau-Ravi-Singh)</a></li>
+                <li><a href="https://ics.uci.edu/~vazirani/book.pdf">Approximation Algorithms (Vazirani)</a></li>
+            </ul>
+        </section>
+
+        <section id="courses">
+            <h2>Related Courses</h2>
+            <ul>
+                <li><a href="https://www.cs.dartmouth.edu/~deepc/appx-lecture-notes.htm">Approximation Algorithms (Chakrabarty)</a></li>
+                <li><a href="https://courses.grainger.illinois.edu/cs583/sp2018/">Approximation Algorithms (Chekuri)</a></li>
+                <li><a href="https://pages.cs.wisc.edu/~shuchi/courses/880-S07/">Approximation Algorithms (Chawla)</a></li>
+                <li><a href="https://theory.epfl.ch/osven/courses/Approx13/">Approximation Algorithms (Svensson and Newman)</a></li>
+                <li><a href="https://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15854-f21/www/">Advanced Approximation Algorithms (Gupta)</a></li>
+                <li><a href="https://homes.cs.washington.edu/~shayan/courses/approx/index.html">Recent Developments in Approximation Algorithms (Oveis Gharan)</a></li>
+                <li><a href="https://homes.cs.washington.edu/~jrl/teaching/cse525sp19/">Randomized Algorithms (Lee)</a></li>
+                <li><a href="https://courses.grainger.illinois.edu/cs598csc/sp2010/">Combinatorial Optimization (Chekuri)</a></li>
+                <li><a href="https://personal.lse.ac.uk/veghl/combopt-gatech/course.html">Combinatorial Optimization (Végh)</a></li>
+            </ul>
+        </section>
+
+
+
+        <section id="schedule">
+            <h2>Course Schedule</h2>
+            <table>
+                <colgroup>
+                    <col style="width: 30%;">
+                    <col style="width: 40%;">
+                    <col style="width: 30%;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Lecture</th>
+                        <th>Topic</th>
+                        <th>Related Materials</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Lecture 1 -->
+                    <tr>
+                        <td>1 (Tuesday, 9/3/24)</td>
+                        <td>Introduction to Course</td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <!-- Lecture 2 -->
+                    <tr>
+                        <td>2 (Thursday, 9/5/24)</td>
+                        <td>Second lecture</td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <!-- Lecture 3 -->
+                    <tr>
+                        <td>3 (Tuesday, 9/10/24)</td>
+                        <td>Introduction to Course</td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <!-- Lecture 4 -->
+                    <tr>
+                        <td>4 (Thursday, 9/12/24)</td>
+                        <td>Second lecture</td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+
+</html>

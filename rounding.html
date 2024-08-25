@@ -7,6 +7,18 @@
     <title>Rounding Techniques</title>
     <link rel="icon" type="image/x-icon" href="./favicon.jpg">
     <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+    integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+    integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+    crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+    integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    
     <style>
         .image-container {
             display: flex;
@@ -62,9 +74,10 @@
             margin-top: 20px;
         }
         th, td {
-            padding: 12px;
+            padding: 7px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #010101;
+            border-right: 1px solid #010101; 
         }
         th {
             background-color: #4CAF50;
@@ -80,17 +93,11 @@
         .materials a:hover {
             text-decoration: underline;
         }
-            /* Define column widths */
-            colgroup col:first-child {
-            width: 30%;
-        }
-
-        colgroup col:nth-child(2) {
-            width: 40%;
-        }
-
-        colgroup col:last-child {
-            width: 30%;
+        details > summary {
+            margin-bottom: 8px;
+        }       
+        details {
+            margin-bottom: 8px;
         }
     </style>
 </head>
@@ -100,7 +107,7 @@
     <div class="image-container">
         <img src="course/cow_image.png" alt="A relaxation of an integer polytope." height="180px">
     </div>
-        <h2>CS 599: Rounding Techniques in Approximation Algorithms</h2>
+        <h2>CS 599: Rounding Techniques in Approximation Algorithms (Fall 2024)</h2>
     </header>
 
     <nav>
@@ -136,14 +143,11 @@
                 <img src="course/Rounding2.png" alt="A relaxation of an integer polytope." height="210px">
             </div>
 
-            <p>In the final step, we round this fractional solution (above in red) to an integer one (above in blue).
-                Our
-                goal will be to find a rounding procedure that, like a good translator, <b>finds an integer solution
-                    that
-                    approximately preserves the key properties of the fractional one</b> such as cost.
+            <p>In the final step, we round this fractional solution (above in blue) to an integer one (above in red).
+                Our goal will be to find a rounding procedure that, like a good translator, <b>finds an integer solution that approximately preserves the key properties of the fractional one</b> such as cost.
                 There are many beautiful methods known for performing this rounding step, which will be our main focus.
                 We will discuss many of them, such as the use of integral polytopes, iterative rounding, iterative
-                relaxation, and independent and dependent randomized rounding. The course will emphasize results from
+                relaxation, and independent and dependent randomized rounding. The course will emphasize <i>graph problems</i> as well as results from
                 the past decade with exciting open directions.</p>
         </section>
 
@@ -169,22 +173,124 @@
             <h2>Related Courses</h2>
             <ul>
                 <li><a href="https://www.cs.dartmouth.edu/~deepc/appx-lecture-notes.htm">Approximation Algorithms (Chakrabarty)</a></li>
-                <li><a href="https://courses.grainger.illinois.edu/cs583/sp2018/">Approximation Algorithms (Chekuri)</a></li>
                 <li><a href="https://pages.cs.wisc.edu/~shuchi/courses/880-S07/">Approximation Algorithms (Chawla)</a></li>
+                <li><a href="https://courses.grainger.illinois.edu/cs583/sp2018/">Approximation Algorithms (Chekuri)</a></li>
                 <li><a href="https://theory.epfl.ch/osven/courses/Approx13/">Approximation Algorithms (Svensson and Newman)</a></li>
                 <li><a href="https://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15854-f21/www/">Advanced Approximation Algorithms (Gupta)</a></li>
                 <li><a href="https://homes.cs.washington.edu/~shayan/courses/approx/index.html">Recent Developments in Approximation Algorithms (Oveis Gharan)</a></li>
+                <li><a href="https://courses.cs.washington.edu/courses/cse525/13sp/">Randomized Algorithms (Karlin)</a></li>
                 <li><a href="https://homes.cs.washington.edu/~jrl/teaching/cse525sp19/">Randomized Algorithms (Lee)</a></li>
                 <li><a href="https://courses.grainger.illinois.edu/cs598csc/sp2010/">Combinatorial Optimization (Chekuri)</a></li>
                 <li><a href="https://personal.lse.ac.uk/veghl/combopt-gatech/course.html">Combinatorial Optimization (Végh)</a></li>
             </ul>
         </section>
 
-
-
         <section id="schedule">
             <h2>Course Schedule</h2>
-            <table>
+
+            <h3>Weeks 1 and 2: Intro and Independent Randomized Rounding</h3>
+            
+            <details>
+                <summary><b>Lecture 1, Tuesday 9/3:</b> Admin, Introduction to Approximation Algorithms and Rounding</summary>
+                    
+                We will use Vertex Cover to review the basics of approximation algorithms, linear programming, integrality gaps, and rounding. Related lectures: <a href="https://www.cs.dartmouth.edu/~deepc/LecNotes/Appx/4.%20Linear%20Programming%20Relaxations.pdf" target="_blank">[Chakrabarty]</a>. 
+            </details>
+
+            <details>
+                <summary><b>Lecture 2, Thursday 9/5:</b> Independent Randomized Rounding for Congestion</summary>
+                    
+                First, we will review basic probability and Chernoff bounds. Then we will discuss the minimum-congestion multi-commodity flow problem. Related lectures: <a href="https://homes.cs.washington.edu/~jrl/teaching/cse525sp19/notes/lecture4.pdf" target="_blank">[Lee]</a> <a href="https://www.cs.dartmouth.edu/~deepc/LecNotes/Appx/7c.%20Congestion%20Minimization.pdf">[Chakrabarty]</a>, also see Chapter 5.11 of the Williamson-Shmoys textbook and <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15854-f05/www/handouts/raghavan-thompson.pdf">this paper</a> by Raghavan-Thompson. 
+            </details>
+
+            <details>
+                <summary><b>Lecture 3, Tuesday 9/10:</b> Independent Randomized Rounding for \(k\)-edge-connectivity</summary>
+                    
+                We will review basic graph concepts like edge connectivity and minimum cuts, as well as <a href="https://dl.acm.org/doi/pdf/10.1145/234533.234534">Karger's bound</a> on the number of \(\alpha\)-minimum cuts. We will then discuss <a href="https://www.cs.cmu.edu/~avrim/Randalgs11/handouts/karger-random-sampling-mor-paper.pdf">Karger's algorithm</a> for finding \(k\)-edge-connected graphs of approximate minimum cost. 
+            </details>
+
+            <details>
+                <summary><b>Lecture 4, Thursday 9/12:</b> Overflow, Open Questions, and Work Session</summary>
+                    
+                We will finish the previous lecture and give time for questions on what we have covered so far. Some open questions will be discussed. Time permitting, some group work on the homework. 
+            </details>
+
+            <h3>Weeks 3 and 4: Dependent Randomized Rounding</h3>
+
+            <details>
+                <summary><b>Lecture 5, Tuesday 9/17:</b> Randomized Pipage Rounding and an Improved Approximation for \(k\)-edge-connectivity</summary>
+                
+                We will introduce the Randomized Pipage Rounding technique for matroids and use it to approximate the \(k\)-edge-connected multi-subgraph problem (see <a href="https://arxiv.org/pdf/2101.05921">this paper</a>). Related lectures: <a href="https://homes.cs.washington.edu/~shayan/courses/approx/adv-approx-9.pdf">[Oveis Gharan]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 6, Thursday 9/19:</b> Thin Trees and an \(O(\log n/\log \log n)\) Approximation for ATSP</summary>
+                
+                We will use randomized pipage rounding to approximate the Asymmetric Traveling Salesperson Problem (ATSP) via thin trees. Related lectures: <a href="https://homes.cs.washington.edu/~shayan/courses/approx/adv-approx-6.pdf">[Oveis Gharan]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 7, Tuesday 9/24:</b> Splitting Off and Approximating Prize-Collecting Problems</summary>
+                
+                We will first review the splitting-off theorems of Lovász and Mader and then use it to approximate the Prize-Collecting TSP and Prize-Collecting Steiner Tree problems. 
+            </details>
+
+            <details>
+                <summary><b>Lecture 8, Thursday 9/26:</b> Overflow, Open Questions, and Work Session</summary>
+                
+                We will finish the previous lecture and give time for questions on what we have covered on dependent randomized rounding. Some open questions will be discussed. Time permitting, some group work on the homework. 
+            </details>
+
+            <h3>Weeks 5, 6, and 7: Iterative Rounding and Relaxation</h3>
+
+            <details>
+                <summary><b>Lecture 9, Tuesday 10/1:</b> Integrality of the Spanning Tree Polytope, Matroids</summary>
+                
+                We will go over some LP basics and prove that the spanning tree polytope has integral vertices. We will then extend this to all matroids and matroid intersection. 
+            </details>
+
+            <details>
+                <summary><b>Lecture 10, Thursday 10/3:</b> Iterative Rounding – Jain's Approximation for Survivable Network Design</summary>
+
+                We will introduce the idea of iterative rounding and prove a 2-approximation for the survivable network design problem.  
+            </details>
+
+            <details>
+                <summary><b>Lecture 11, Tuesday 10/8:</b> Iterative Relaxation – Beck-Fiala and Bounded Degree Matroids</summary>
+
+                We will introduce the idea of iterative relaxation and prove the Beck-Fiala Theorem and the existence of bounded degree matroid bases. 
+            </details>
+
+            <details>
+                <summary><b>Lecture 12, Thursday 10/10:</b> Iterative Relaxation for \(k\)-edge-connectivity</summary>
+
+                We will finish our sequence on \(k\)-edge-connectivity with a <a href="https://arxiv.org/pdf/2311.09941">2024 result</a> giving a \(1+O(1/k)\) approximation
+            </details>
+
+            <details>
+                <summary><b>No class on Tuesday 10/15:</b> BU is on a Monday schedule</summary>
+
+                Relax! (And round?)
+            </details>
+
+            <details>
+                <summary><b>Lecture 13, Tuesday 10/17:</b> Overflow, Open Questions, and Work Session</summary>
+
+                We will finish the previous lecture and give time for questions on what we have covered on iterative rounding and relaxation. Some open questions will be discussed. Time permitting, some group work on the homework. 
+            </details>
+
+            <h3>Week 8: Iterative Randomized Rounding</h3>
+
+            <h3>Week 9: Rounding with the Local Lemma</h3>
+
+            <h3>Week 10: Nash Social Welfare</h3>
+
+            <details>
+                <summary><b>Lecture ?, ?:</b> An \(O(1)\) Approximation for Weighted Nash Social Welfare with Additive Valuations</summary>
+
+                We will discuss a very recent result of <a href="https://arxiv.org/pdf/2404.15607">Feng and Shi</a> which gives a \(e^{1/e}+\epsilon\) approximation for this problem via a configuration LP. 
+            </details>
+
+            <table  style="max-width: 1000px;">
                 <colgroup>
                     <col style="width: 30%;">
                     <col style="width: 40%;">
@@ -198,15 +304,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Lecture 1 -->
                     <tr>
                         <td>1 (Tuesday, 9/3/24)</td>
-                        <td>Introduction to Course</td>
+                        <td>Introduction to Approxation Algorithms and LP Rounding</td>
                         <td class="materials">
-                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                            <a href="https://www.cs.dartmouth.edu/~deepc/LecNotes/Appx/4.%20Linear%20Programming%20Relaxations.pdf" target="_blank">Chakrabarty Lecture</a>
                         </td>
                     </tr>
-                    <!-- Lecture 2 -->
                     <tr>
                         <td>2 (Thursday, 9/5/24)</td>
                         <td>Second lecture</td>
@@ -214,21 +318,179 @@
                             <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
                         </td>
                     </tr>
-                    <!-- Lecture 3 -->
                     <tr>
                         <td>3 (Tuesday, 9/10/24)</td>
-                        <td>Introduction to Course</td>
+                        <td></td>
                         <td class="materials">
                             <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
                         </td>
                     </tr>
-                    <!-- Lecture 4 -->
                     <tr>
                         <td>4 (Thursday, 9/12/24)</td>
-                        <td>Second lecture</td>
+                        <td></td>
                         <td class="materials">
                             <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>5 (Tuesday, 9/17/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6 (Thursday, 9/19/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7 (Tuesday, 9/24/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8 (Thursday, 9/26/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9 (Tuesday, 10/1/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10 (Thursday, 10/3/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11 (Tuesday, 10/8/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12 (Thursday, 10/10/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>No Class (10/15 on Monday schedule)</td><td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td>13 (Thursday, 10/17/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14 (Tuesday, 10/22/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12 (Thursday, 10/24/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13 (Tuesday, 10/29/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14 (Thursday, 10/31/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15 (Tuesday, 11/5/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>16 (Thursday, 11/7/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TBD, at conference (Tuesday, 10/8/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>TBD, at conference (Thursday, 10/10/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>17 (Tuesday, 11/19/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>18 (Thursday, 11/21/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>19 (Tuesday, 11/26/24)</td>
+                        <td></td>
+                        <td class="materials">
+                            <a href="materials/introduction.pdf" target="_blank">Introduction PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>No class, Fall break (Thursday, 11/28/24)</td>
+                        <td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td>20 (Tuesday, 12/3/24)</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>21 (Thursday, 12/5/24)</td>
+                        <td></td><td></td>
+                    </tr>
+                    <tr>
+                        <td>22 (Tuesday, 12/10/24)</td>
+                        <td></td><td></td>
                     </tr>
                 </tbody>
             </table>

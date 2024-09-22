@@ -1,0 +1,81 @@
+\include{preamble.tex}
+
+\renewcommand{\P}[1]{{\mathbb{P}}\left[#1\right]}
+\renewcommand{\PP}[2]{{\mathbb{P}}_{#1}\left[#2\right]}
+\renewcommand{\E}[1]{{\mathbb{E}}\left[#1\right]}
+\renewcommand{\EE}[2]{{\mathbb{E}}_{#1}\left[#2\right]}
+\renewcommand{\R}{\ensuremath{\mathbb R}}
+\renewcommand{\Z}{\ensuremath{\mathbb Z}}
+\def\cI{{\cal I}}
+
+\begin{document}
+
+\noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 5.78in { {\bf CS 599: Rounding Techniques in Approximation Algorithms} \hfill  }
+       \vspace{4mm}
+       \hbox to 5.78in { {\Large \hfill Homework 2: Dependent Randomized Rounding \hfill} }
+             \vspace{2mm}
+       \hbox to 5.78in { {\it Fall 2024 \hfill } }
+      }
+   }
+   \end{center}
+
+
+\section{Problem 1: P=NP...?} 
+
+\begin{enumerate}
+	\item In the traveling salesperson problem, we are given a complete graph $G=(V,E)$ with edge costs $c: E \to \R_{\ge 0}$ that form a metric, i.e. $c_{\{u,w\}} \le c_{\{u,v\}}+c_{\{v,w\}}$ for all $u,v,w$. Our goal is to find the minimum cost Hamiltonian cycle. Now where $n=|V|$ and $E(S)$ for $S \subseteq V$ is the set of edges with both endpoints in $S$, let $$P_{\mathrm{sub}} = \begin{cases} \sum_{e \in E} x_e = n \\ \sum_{e \in E(S)} x_e \le |S|-1 & \forall S \subsetneq V \\ x_e \ge 0 & \forall e \in E \end{cases}$$
+	Prove that $P_{\mathrm{sub}} \cap \{0,1\}^E$ is the set of all feasible solutions to the traveling salesperson problem, i.e. all Hamiltonian cycles in $G$. 
+	\item Notice that $P_{\mathrm{sub}}$ is exactly the spanning tree polytope $P_{\mathrm{st}}$ except we have changed the $n-1$ to an $n$. So, it seems like we should be able to apply the proof from Lecture 4 to show that it has integral vertices. Either use this to prove P=NP or find a flaw in the argument from Lecture 4 when applied to $P_{\mathrm{sub}}$ instead of $P_{\mathrm{st}}$ (i.e. when we change the $n-1$ to an $n$).
+	\item In Lecture 3, we mentioned that it is NP-Hard to obtain a $1.001$ approximation for weighted $k$-ECSS for any $k$. Either explain where the proof fails and give an explicit counterexample showing that the $1+O(\sqrt{\frac{\log n}{k}})$ approximation does not work for weighted $k$-ECSS, or adapt the algorithm to prove that P=NP.  
+\end{enumerate}
+
+\section{Problem 2: Scaling into Integral}
+
+Suppose $P$ is a polytope in $[0,1]_{\ge 0}^n$ and $\tilde{P}$ is the convex hull of $P \cap \Z^n$. Now, suppose that there is an $\alpha \ge 1$ such that given any point $x \in P$ there exists a randomized algorithm $A$ that produces a random point $\tilde{x} \in \tilde{P}$ such that $\E{\tilde{x}_i} \le \alpha x_i$ for every input, where the expectation is taken over the possible outputs $\tilde{x}$ of $A$ given $x$. 
+
+Given a polytope $P$, $P^\uparrow$ is called the \textit{dominant} of $P$ and consists of all points $x$ such that there exists $x' \in P$ for which $x'-x \in \R^n_{\ge 0}$.
+\begin{enumerate}
+	\item Prove that $\alpha \cdot P \subseteq \tilde{P}^\uparrow$ (where $\alpha \cdot P$ consists of all points in $x$ scaled entry-wise by $\alpha$).
+	\item Prove that if $P$ is defined by the constraints $0 \le x_i \le 1$ and a collection of \textit{covering constraints}, i.e. constraints of the form $a^Tx \ge b$ for $a \in \R_{\ge 0}^n, b \in \R_{\ge 0}$, then the integrality gap of the LP $\min c^Tx$ subject to $x \in P$ is at most $\alpha$ for any $c \in \R^n_{\ge 0}$.
+\end{enumerate}
+
+\section{Problem 3: Randomized Pipage Rounding for Matroids}
+
+A \textit{matroid} $M=(E,\cI)$ is defined by a collection of elements $E$ and a collection of \textit{independent sets} $\cI \subseteq 2^E$ with $\emptyset \in \cI$ and the properties:
+\begin{enumerate}[(i)]
+\item \textbf{Downward Closed}: If $I \in \cI$, then $J \in \cI$ for every $J \subseteq I$.
+\item \textbf{Augmentation Property}: If $I,J \in \cI$ and $|I| < |J|$ then there exists some $e \in J$ such that $I \cup \{e\} \in \cI$. 
+\end{enumerate}
+A \textit{basis} of a matroid is any maximal independent set. The \textit{rank} of a collection of elements $F \subseteq E$ is the maximum possible size of $I \cap F$ for any $I \in \cI$. Let $r: 2^E \to \Z_{\ge 0}$ be the rank function.
+
+In this problem, we will consider the following polytope $P_M$ for a matroid $M$:
+$$P_M = \begin{cases} x(E) = r(E) \\ x(S) \le r(S) & \forall S \subseteq E \\ x_e \ge 0 & \forall e \in E \end{cases}$$
+\begin{enumerate}
+\item Argue that the set of forests of a graph forms a matroid $M$, and that in this case $P_M = P_{\mathrm{st}}$.
+\item Adapt the proof in class for the spanning tree polytope to show that for every matroid $M$, $P_M$ as defined above is the convex hull of its (integral) bases, i.e. it is the base polytope of $M$. You may use that the rank function $r$ is submodular, i.e. $r(S)+r(T) \ge r(S \cup T) + r(S \cap T)$ for $S,T \subseteq E$. Then briefly argue that randomized pipage rounding works for any matroid with the same guarantees as for spanning trees.
+\item Use the \href{https://en.wikipedia.org/wiki/Method_of_conditional_probabilities}{method of conditional expectation} to derandomize randomized pipage rounding so that given $x \in P_M$ and any cost function $c:E \to \R^E$, we can find a point of cost at most $c(x)$ in polynomial time. 
+\item When using given an independent distribution $\mu: 2^E \to \R^E_{\ge 0}$ with marginals $x$, we have used that $\PP{S \sim \mu}{|S \cap F|=0} \le e^{-x(F)}$ for any $F \subseteq E$. Show that this also holds for distributions with 0-negative correlation and thus for randomized pipage rounding. 
+
+Show that the same bound does \textit{not} hold for all distributions $\mu$ with only negative correlation, i.e. $\E{\prod_{i \in S} X_i} \le \prod_{i \in S} \E{X_i}$ for all $S \subseteq E$, by exhibiting a negatively correlated distribution for which this does not hold. 
+\end{enumerate}
+
+\section{Problem 4: Lottery}
+
+Use the above to show that we can design a multi-item lottery as follows. Suppose we have a collection of $n$ goods $g_1,\dots,g_n$, a collection of $m$ people $w_1,\dots,w_m$, and a specified $0 < \epsilon < 1$. Now, we will allow people to buy up to one lottery ticket. Before they purchase a ticket, they will specify the subset of the goods that they would be happy winning, and if we sell them a ticket we must promise them that their chance of getting one of their chosen goods is at least $\epsilon$. 
+
+Using that $P_M$ has a polynomial time separation oracle for every $M$, implement a polynomial time lottery system that (i) can determine when a ticket can be faithfully sold (this will depend on the subset of goods desired), (ii) will output a random assignment that respects the guarantee, and (iii) is \textit{fair to all groups} in the sense that for any group of $k$ people, the probability at least one of them wins something is at least $1-e^{-k\epsilon}$.
+
+\section{Bonus Problems} 
+
+\begin{enumerate}
+	\item Prove the parsimonious property from Lecture 6 using splitting off. 
+	\item Show that the randomized rounding algorithm for the multi-commodity flow problem can be derandomized using the method of conditional expectation.
+	\item Give an example showing that the Chernoff bound upper tail does not hold for distributions with only \textit{pairwise} negative correlation, i.e. $\P{e,f \in S} \le \P{e \in S}\P{f \in S}$ (and not full negative correlation a.k.a the NCP as we proved for pipage rounding). 
+	\item (***) Prove that swap rounding gives a $1+O(1/\sqrt{k})$ for $k$-ECSM. (Note: This is quite difficult. I think I vaguely see how to prove this but I'm not 100\% sure. This could potentially even be false, although I don't think so. This could be an interesting final project.)
+\end{enumerate}
+
+\end{document}

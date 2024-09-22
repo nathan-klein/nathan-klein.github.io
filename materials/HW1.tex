@@ -1,0 +1,80 @@
+\include{preamble.tex}
+
+\begin{document}
+
+\noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 5.78in { {\bf CS 599: Rounding Techniques in Approximation Algorithms} \hfill  }
+       \vspace{4mm}
+       \hbox to 5.78in { {\Large \hfill Homework 1: Intro and Independent Randomized Rounding \hfill} }
+             \vspace{2mm}
+       \hbox to 5.78in { {\it Fall 2024 \hfill } }
+      }
+   }
+   \end{center}
+
+\pagenumbering{gobble}
+
+\section{Problem 1: Vertex Cover} 
+
+\begin{enumerate}
+\item Write the natural integer programming relaxation for Vertex Cover and the corresponding relaxed linear program.
+\item Prove that if $x$ is an extreme point solution to this LP, then $x_v \in \{0,\frac{1}{2},1\}$ for all $v \in V$.
+\item Give a $\frac{3}{2}$ approximation for Vertex Cover on planar graphs. Show a matching lower bound on the integrality gap.
+\item Given an example that shows the greedy algorithm for vertex cover (iteratively picking the max degree vertex and deleting it and its edges from the graph) has approximation ratio $\Omega(\log n)$. 
+\item \textit{(Bonus question)} Give a lower bound showing that the Vertex Cover LP with triangle constraints (see Lecture 1) still has an integrality gap of 2 (up to lower order terms).
+%\item Give the exact integrality gap for graphs of bounded degree $d$ (for every $d$). 
+\end{enumerate}
+
+%\section{Problem 2: MAX $k$-CUT}
+%
+%In MAX $k$-CUT, we are given a graph $G=(V,E)$ and the goal is to partition it into $k$ pieces $V_1,\dots,V_k$ so as to maximize the number of edges with endpoints in different parts. 
+%\begin{enumerate}
+%\item Give a randomized $\frac{k-1}{k}$ approximation for this problem. 
+%\item Derandomize this algorithm to obtain a deterministic $\frac{k-1}{k}$ approximation.
+%\end{enumerate}
+
+\section{Problem 2: Chernoff Bounds}
+
+\begin{enumerate}
+%\item Consider the coupon collector problem: there are $n$ items and at each time step $1,2,\dots$ we collect a uniformly random item. Let $X$ be the timestep all items are collected. Prove that  $\E{X} = (1+o(1))n \log n$. Furthermore, show that $\P{|X - \E{X}| \ge \epsilon n} \le e^{-\Omega(\epsilon^2)}$ for $\epsilon \ge 2$.
+\item Prove that the congestion for the multi-commodity flow problem we discussed in Lecture 2 can be improved to $O(\log n/\log \log n)$. 
+\item Prove that the maximum degree of a vertex in a uniformly random spanning tree on the complete graph is $O(\log n/\log \log n)$ with high probability. You may use the \href{https://en.wikipedia.org/wiki/Pr\%C3\%BCfer_sequence}{Prüfer code}. 
+\end{enumerate}
+
+\section{Problem 3: Set Cover}
+
+Set cover is a generalization of vertex cover. Here we are given elements $E = \{e_1,\dots,e_n\}$ and some sets $S_1,\dots,S_m \subseteq E$ with non-negative weights $w_1,\dots,w_m \in \R_{\ge 0}$. Our goal is to select a collection of sets $\cS$ with minimum cost that covers all the elements, i.e. we should have $\bigcup_{S \in \cS} S_i = E$.
+\begin{enumerate}
+\item Write the natural integer programming relaxation for set cover and the corresponding relaxed linear program. 
+\item Prove that the probability a given element is covered by including each set $S_i$ in $\cS$ independently with probability $x_{i}$ is at least $1-1/e$. 
+\item Give a $O(\log n)$ approximation for set cover that works with probability at least $1-1/n$. 
+\item Prove that the integrality gap of the LP for set cover is at least $(1-\epsilon)\ln n$ for every $\epsilon > 0$. \textbf{Hint:} Use a random instance. 
+
+\item \textit{(Bonus question)} Give a deterministic construction with gap $\Omega(\log n)$. 
+\end{enumerate}
+
+
+%\section{Problem 3: $s$-$t$ Minimum Cut}
+%
+%In the $s$-$t$ minimum cut problem, we are given a graph $G=(V,E)$ and two distinct vertices $s,t \in V$. The goal is to partition the graph into two pieces, $S$ and $V \smallsetminus S$ such that $s \in S$ and $t \not\in S$, so that $|\delta(S)|$ is minimized, where $\delta(S)$ is the set of edges with exactly one endpoint in $S$. 
+%
+%\begin{enumerate}
+%\item Write the natural linear programming relaxation for $s$-$t$ minimum cut. 
+%\item Give a randomized 1-approximation for $s$-$t$ minimum cut. 
+%\item Show that any extreme point to the LP is actually an integer point. 
+%\end{enumerate}
+
+%\section{Problem 3: MAX SAT}
+%
+%In the MAX SAT problem, we are given $n$ variables $x_1,\dots,x_n$ which we can set to true or false. Furthermore, we are given $m$ clauses $C_1,\dots,C_m$ which consist of unnegated and negated variables, so that a clause $C_j$ consists of two sets of indices, $P_j$ and $N_j$, and is of the form $$\bigvee_{i \in P_j} x_i \lor \bigvee_{i \in N_j} \overline{x_i}.$$
+%We may assume $P_j \cap N_j = \emptyset$ and $|P_j \cup N_j| \ge 1$ for all clauses.
+%
+%\begin{enumerate}
+%\item Write an integer programming relaxation of MAX SAT and the corresponding relaxed linear program.
+%\item Give a randomized 	$(1-\frac{1}{e})$ approximation for MAX SAT.
+%\end{enumerate}
+
+\end{document}

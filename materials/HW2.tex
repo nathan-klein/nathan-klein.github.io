@@ -30,12 +30,12 @@
 	\item In the traveling salesperson problem, we are given a complete graph $G=(V,E)$ with edge costs $c: E \to \R_{\ge 0}$ that form a metric, i.e. $c_{\{u,w\}} \le c_{\{u,v\}}+c_{\{v,w\}}$ for all $u,v,w$. Our goal is to find the minimum cost Hamiltonian cycle. Now where $n=|V|$ and $E(S)$ for $S \subseteq V$ is the set of edges with both endpoints in $S$, let $$P_{\mathrm{sub}} = \begin{cases} \sum_{e \in E} x_e = n \\ \sum_{e \in E(S)} x_e \le |S|-1 & \forall S \subsetneq V \\ x_e \ge 0 & \forall e \in E \end{cases}$$
 	Prove that $P_{\mathrm{sub}} \cap \{0,1\}^E$ is the set of all feasible solutions to the traveling salesperson problem, i.e. all Hamiltonian cycles in $G$. 
 	\item Notice that $P_{\mathrm{sub}}$ is exactly the spanning tree polytope $P_{\mathrm{st}}$ except we have changed the $n-1$ to an $n$. So, it seems like we should be able to apply the proof from Lecture 4 to show that it has integral vertices. Either use this to prove P=NP or find a flaw in the argument from Lecture 4 when applied to $P_{\mathrm{sub}}$ instead of $P_{\mathrm{st}}$ (i.e. when we change the $n-1$ to an $n$).
-	\item In Lecture 3, we mentioned that it is NP-Hard to obtain a $1.001$ approximation for weighted $k$-ECSS for any $k$. Either explain where the proof fails and give an explicit counterexample showing that the $1+O(\sqrt{\frac{\log n}{k}})$ approximation does not work for weighted $k$-ECSS, or adapt the algorithm to prove that P=NP.  
+	\item In Lecture 3, we mentioned that it is NP-Hard to obtain a $1.001$ approximation for weighted $k$-ECSS for any $k$. Either explain where the proof of the $1+O(\sqrt{\frac{\log n}{k}})$ approximation for the unweighted case fails and give an integrality gap example of $1+\epsilon$ for some constant $\epsilon > 0$ and some $k \ge \log n$, or adapt the algorithm to prove that P=NP.  
 \end{enumerate}
 
 \section{Problem 2: Scaling into Integral}
 
-Suppose $P$ is a polytope in $[0,1]_{\ge 0}^n$ and $\tilde{P}$ is the convex hull of $P \cap \Z^n$. Now, suppose that there is an $\alpha \ge 1$ such that given any point $x \in P$ there exists a randomized algorithm $A$ that produces a random point $\tilde{x} \in \tilde{P}$ such that $\E{\tilde{x}_i} \le \alpha x_i$ for every input, where the expectation is taken over the possible outputs $\tilde{x}$ of $A$ given $x$. 
+Suppose $P$ is a polytope in $[0,1]_{\ge 0}^n$ and $\tilde{P}$ is the convex hull of $P \cap \Z^n$. Now, suppose that there is an $\alpha \ge 1$ such that given any point $x \in P$ there exists a randomized algorithm $A$ that produces a random point $\tilde{x} \in \tilde{P}$ such that $\E{\tilde{x}_i} \le \alpha x_i$ for all $i$ for every input, where the expectation is taken over the possible outputs $\tilde{x}$ of $A$ given $x$. 
 
 Given a polytope $P$, $P^\uparrow$ is called the \textit{dominant} of $P$ and consists of all points $x$ such that there exists $x' \in P$ for which $x'-x \in \R^n_{\ge 0}$.
 \begin{enumerate}
@@ -74,7 +74,7 @@ Using that $P_M$ has a polynomial time separation oracle for every $M$, implemen
 \begin{enumerate}
 	\item Prove the parsimonious property from Lecture 6 using splitting off. 
 	\item Show that the randomized rounding algorithm for the multi-commodity flow problem can be derandomized using the method of conditional expectation.
-	\item Give an example showing that the Chernoff bound upper tail does not hold for distributions with only \textit{pairwise} negative correlation, i.e. $\P{e,f \in S} \le \P{e \in S}\P{f \in S}$ (and not full negative correlation a.k.a the NCP as we proved for pipage rounding). 
+	\item Give an example showing that the Chernoff bound upper tail does not hold for distributions with only \textit{pairwise} negative correlation, i.e. $\P{e,f \in S} \le \P{e \in S}\P{f \in S}$ (and not full negative correlation as we proved for pipage rounding). 
 	\item (***) Prove that swap rounding gives a $1+O(1/\sqrt{k})$ for $k$-ECSM. (Note: This is quite difficult. I think I vaguely see how to prove this but I'm not 100\% sure. This could potentially even be false, although I don't think so. This could be an interesting final project.)
 \end{enumerate}
 

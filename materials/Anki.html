@@ -28,7 +28,7 @@ td { border: 1px solid #ccc; padding: 1em; }
 .playImage { display: none; }
 </style>
 
-<table  width=100%><tr><td width="33.333333333333336%"><center><div class="front">
+<table cellspacing=10 width=100%><tr><td width="33.333333333333336%"><center><div class="front">
 0-negative correlation
 </div>
 <div class="front">
@@ -40,147 +40,148 @@ Bernoulli random variables \(X_1,\dots,X_n\) are 0-negatively correlated if for 
 <div class="front">
 <hr id=answer>
 </div>
-	The vertices of a planar graph can be 4-colored. Furthermore, this can be done in polynomial time.</center></td><td width="33.333333333333336%"><center><div class="front">
+The vertices of a planar graph can be 4-colored. Furthermore, this can be done in polynomial time.</center></td><td width="33.333333333333336%"><center><div class="front">
 An inequality for \(e\)
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	\(1-x \le e^{-x}\) for all \(x \in \mathbb{R}\), positive or negative<br><br>In general remember \(e^x = 1+x+x^2/2!+x^3/3!+\dots\) by Maclaurin series. So for small \(|x|\), we have \(e^x \approx 1+x\).&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
-	Asymptotics of \(H_n\), the Harmonic Series
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	\(H_n = \sum_{k=1}^n \frac{1}{k}\). As \(n \to \infty\), we have \(H_n = (1+o(1))\ln(n)\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
-	Carathéodory's Theorem
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	If \(x \in \mathbb{R}^n\) is a point in a polytope \(P\), then we can write \(x\) as a convex combination of at most \(n+1\) vertices \(v_1,\dots,v_{n+1}\) of \(P\).&nbsp;<br><br>In other words, we have \(x = \sum_{i=1}^{n+1} \lambda_i v_i\) where \(\sum_{i=1}^n \lambda_i = 1\) and \(\lambda_i \ge 0\) for all \(i\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
-	Chernoff Bound Lower Tail
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	Let \(X_1,\dots,X_n\) be independent Bernoulli random variables. Then if \(X = \sum_{i=1}^n X_i\), \(L \le \mathbb{E}[X]\), and \(0 \le \delta \le 1\), we have:\[\mathbb{P}[X \le (1-\delta)L] \le \exp(-L\delta^2/2)\]</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
-	Chernoff Bound Upper Tails
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	Let \(X_1,\dots,X_n\) be independent Bernoulli random variables. Let \(X = \sum_{i=1}^n X_i\), \(\mathbb{E}[X] \le U\). For small&nbsp;\(\delta &gt;0\), one can use\[\mathbb{P}[X \ge (1+\delta)U] \le \exp(-U\delta^2/(2+\delta))\]When \(\delta \le 1\), often you will see \(\exp(-U\delta^2/3)\). For large \(\delta \ge 2\), the following is stronger:&nbsp;\[\mathbb{P}[X \ge (1+\delta)U] \le \exp(-U\delta \ln \delta/4)\]If you prefer to just remember one bound that can be used to obtain both of these, you can use this for all \(\delta &gt; 0\):\[\mathbb{P}[X \ge (1+\delta)U] &lt; \left(\frac{e^\delta}{(1+\delta)^{1+\delta}}\right)^U\]In practice it is just slightly more cumbersome to use. On the quiz, either remember the two bounds for differing values of delta or remember the last bound.<br></center></td><td width="33.333333333333336%"><center><div class="front">
-	Definition of Approximation Algorithm
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	An \(\alpha\)-approximation for an optimization problem is a polynomial time algorithm which produces a solution of cost within a factor of \(\alpha\) of the optimal solution for every instance.</center></td><td width="33.333333333333336%"><center><div class="front">
-	Definition of a vertex of a polyhedron and of an extreme point solution
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	A&nbsp; vertex of a polyhedron \(P\) is a point \(x\) for which these exists no non-zero direction \(d\) such that \(x+d \in P\) and \(x-d \in P\).&nbsp;<br><br>Given an LP over a polyhedron \(P\), an extreme point solution is a vertex of \(P\). As long as the optimal solution to this LP is bounded, there is guaranteed to be an optimal solution which is a vertex. This can be proved using Carathéodory's theorem.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
-	Ellipsoid method and separation oracle
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	Let \(P\) be a convex set. A separation oracle for \(P\) is&nbsp;a polynomial time procedure that given a point \(x \in \mathbb{R}^n\), either certifies that \(x \in P\) or returns a hyperplane that separates \(x\) from \(P\). In other words, it returns a a vector \(a \in \mathbb{R}^n\) such that \(a^Tx &gt; a^Ty\) for all \(y \in P\).&nbsp;<br><br>The ellipsoid method is a polynomial time algorithm that can optimize over any convex set with a separation oracle. (In other words, it can solve any LP whose feasible region is convex and has a separation oracle.)<br><br>In this course, \(P\) will typically be a convex polyhedron defined by a (possibly exponential size) collection of hyperplanes, and our separation oracle will return one of these hyperplanes.</center></td><td width="33.333333333333336%"><center><div class="front">
-	Hoffman's Circulation Theorem
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	Let \(G=(V,A)\) be a directed graph. A flow \(f:A \to \mathbb{R}_{\ge 0}\) is a called a circulation if it has equal in and out degree at every vertex.&nbsp;<br><br>Hoffman's circulation theorem says that given two flows \(f^l,f^r\), there is an circulation \(r\) with \(f^l_a \le r_a \le f^r_a\) for all \(a \in A\) if and only if \(f^u-f^l \in \mathbb{R}^A_{\ge 0}\) and for all \(S \subset V\), \(f^l(\delta^-(S)) \le f^u(\delta^+(S))\). Remember \(\delta^-(S)\) is the set of edges entering a cut \(S\) and \(\delta^+(S)\) the set of edges leaving.<br><br>Finally (and crucially), if \(f^l,f^r\) are integer valued, we can choose \(r\) to be integer valued. This can be proved by showing that the extreme points of the circulation polytope are integral whenever the lower and upper bounds are integral.&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
-	Independent Randomized Rounding
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	In independent randomized rounding, we treat a variable \(x_i\) as a probability. Typically, we will have each \(x_i \in [0,1]\) and we round each variable independently \(i\) to 1 with probability \(x_i\).&nbsp;<br><br>This method is used in a straightforward manner for Set Cover (Homework 1) and Karger's argument for \(k\)-edge-connectivity. For the min-congestion multi-commodity flow problem, we treat the paths for each commodity as an independent distribution, but (in a slight twist of this framework) ensure we pick exactly one path. This allows us to ensure we get a feasible solution with probability 1 but still apply Chernoff / Union bounds.&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
-	Integer Linear Program and Linear Program Relaxation
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	An Integer Linear Program (ILP) minimizes a linear objective function over a convex polyhedron \(P\). The variables are constrained to be integers. \[\begin{align*} \min c^Tx \\ x \in P \\ x \in \mathbb{Z}_{\ge 0}^n\end{align*}\] If we instead only constrain the variables to be real numbers, we get a Linear Program (LP):\[\begin{align*} \min c^Tx \\ x \in P \\ x \in \mathbb{R}_{\ge 0}^n
-	\end{align*}\]Note we can flip min to max by negating the entries of \(c\), so these programs are fully general.&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
-	Integrality Gap
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	The integrality gap of an ILP and its associated LP is the worst case ratio between the ILP OPT and the LP OPT over all instances.</center></td><td width="33.333333333333336%"><center><div class="front">
-	Nash Williams Theorem
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	Every \(k\)-edge-connected graph contains \(k/2\) edge disjoint spanning trees.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
-	Negative correlation
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	Bernoulli random variables \(X_1,\dots,X_n\) are negatively correlated if for all \(S \subseteq [n]\), we have\[\mathbb{E}[\prod_{i \in S} X_i] \le \prod_{i \in S} \mathbb{E}[X_i]\]Negative correlation implies the Chernoff bound upper tail<br><br>They have the negative cylinder property if they are both negatively correlated and 0-negatively correlated.</center></td><td width="33.333333333333336%"><center><div class="front">
-	Polyhedron and polytope
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	A polyhedron is the intersection of a finite number of halfspaces. A polytope is a bounded polyhedron.</center></td><td width="33.333333333333336%"><center><div class="front">
-	Randomized pipage rounding
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	Given a point \(x\) in a matroid base polytope \(P_M\) with at least one fractional coordinate, randomized pipage rounding finds a direction \(d\) with two non-zero coordinates and an \(\epsilon,\delta &gt;0\) such that \(x+\epsilon d \in P_M\) and \(x-\delta d \in P_M\) and both new points have&nbsp;more tight constraints than \(x\). We move randomly to one of the two points so that the expected movement is 0, and the process is iterated until an integral point is found.<br><br>This procedure produces a distribution over bases which is negatively correlated and 0-negatively correlated.&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
-	Relax and round framework
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	Start with an ILP with a separation oracle whose feasible solutions are the feasible solutions for your optimization problem. Then, relax it to an LP, which is polynomial time solvable by the ellipsoid method. After solving this LP, round the resulting solution to a feasible integer solution.</center></td><td width="33.333333333333336%"><center><div class="front">
-	Spanning tree polytope
-	</div>
-	<div class="front">
-	<hr id=answer>
-	</div>
-	Given a graph \(G=(V,E)\), the spanning tree polytope is the convex hull of all spanning trees. We proved that it is also equal to the following formulation: the set of points \(x \in \mathbb{R}^n\) such that&nbsp;\[\begin{align*}
-	\sum_{e \in E}x_e = |V| -1\\
-		\sum_{e \in E(S)} x_e \le |S|-1 &amp;&amp; \forall S \subseteq V\\
-		x_e \ge 0 &amp;&amp; \forall e \in E
-		\end{align*}\]<br></center></td><td width="33.333333333333336%"><center><div class="front">
-		Splitting Off
-		</div>
-		<div class="front">
-		<hr id=answer>
-		</div>
-		Given a multi-graph \(G=(V,E)\), the splitting off theorem states that for any vertex \(u \in V\) adjacent to at least two edges with distinct endpoints, there exists a pair of edges \(e=(u,v),f=(u,w)\) such that removing \(e,f\) from \(E\) and adding \((v,w)\)&nbsp;to \(E\) preserves the pairwise connectivity of all pairs of vertices \(a,b \in V \setminus \{u\}\).&nbsp;<br><br>If a vertex is only adjacent to one other vertex, all of the edges adjacent can be deleted without modifying the pairwise connectivity. This means that any vertex can be "fully" split off, replacing its edges with others that ensure the pairwise connectivities of the remaining vertices remain the same.&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
-		Thin Trees and the Thin Tree Conjecture
-		</div>
-		<div class="front">
-		<hr id=answer>
-		</div>
-		Given a \(k\)-edge-connected graph, a spanning tree \(T\) is \(\alpha\)-thin if for every cut \(S \subseteq V\) we have\[|\delta_T(S)| \le \alpha \cdot |\delta(S)|\]The strong thin tree conjecture is that a tree always exists with \(\alpha \in O(1/k)\). The thin tree conjecture simply asks if for large enough \(k\) we can pick \(\alpha = 0.99\). Both conjectures are wide open.<br><br>Given a fractional point \(x\), a spanning tree \(T\) is \(\alpha\)-thin for \(x\) if for every cut \(S \subseteq V\) we have\[|\delta_T(S)| \le \alpha \cdot x(\delta(S))\]To prove the strong thin tree conjecture, it is sufficient to show that we can always find a tree with&nbsp;\(\alpha \in O(1)\)&nbsp;for \(x \in P^\uparrow_{st}\), the dominant of the spanning tree polytope.</center></td><td width="33.333333333333336%"><center><div class="front">
-		Threshold rounding
-		</div>
-		<div class="front">
-		<hr id=answer>
-		</div>
-		The simplest kind of LP rounding. Given an LP solution, round all variables above a certain threshold to their ceiling.&nbsp;<br><br>This works for "covering" problems like Vertex Cover in which the constraints are of the form \(a^Tx \ge b\) for \(a \in \mathbb{R}_{\ge 0}^n, b \in \mathbb{R}\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
-		Union Bound
-		</div>
-		<div class="front">
-		<hr id=answer>
-		</div>
-		Given \(n\) events \(B_1,\dots,B_n\), the probability any of the events \(B_i\) occur is at most \(\sum_{i=1}^n \mathbb{P}[B_i]\).&nbsp;<br><br>In its typical usage, we want to avoid all of the events \(B_i\) with some probability. The union bound says that with probability at least \(1-\sum_{i=1}^n \mathbb{P}[B_i]\), none of the events occur.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
-		\(\alpha\)-near minimum cuts and Karger's bound on their number
-		</div>
-		<div class="front">
-		<hr id=answer>
-		</div>
-		Given a \(k\)-edge-connected graph, a cut is&nbsp;\(\alpha\)-near minimum if it has at most \(\alpha k\) edges. Karger's bound shows there are at most \(n^{2\alpha}\)&nbsp;\(\alpha\)-near minimum cuts.</center></td></tr></table></body></html>
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+\(1-x \le e^{-x}\) for all \(x \in \mathbb{R}\), positive or negative<br><br>In general remember \(e^x = 1+x+x^2/2!+x^3/3!+\dots\) by Maclaurin series. So for small \(|x|\), we have \(e^x \approx 1+x\).&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Asymptotics of \(H_n\), the Harmonic Series
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+\(H_n = \sum_{k=1}^n \frac{1}{k}\). As \(n \to \infty\), we have \(H_n = (1+o(1))\ln(n)\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Carathéodory's Theorem
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+If \(x \in \mathbb{R}^n\) is a point in a polytope \(P\), then we can write \(x\) as a convex combination of at most \(n+1\) vertices \(v_1,\dots,v_{n+1}\) of \(P\).&nbsp;<br><br>In other words, we have \(x = \sum_{i=1}^{n+1} \lambda_i v_i\) where \(\sum_{i=1}^n \lambda_i = 1\) and \(\lambda_i \ge 0\) for all \(i\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Chernoff Bound Lower Tail
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Let \(X_1,\dots,X_n\) be independent Bernoulli random variables. Then if \(X = \sum_{i=1}^n X_i\), \(L \le \mathbb{E}[X]\), and \(0 \le \delta \le 1\), we have:\[\mathbb{P}[X \le (1-\delta)L] \le \exp(-L\delta^2/2)\]</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Chernoff Bound Upper Tails
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Let \(X_1,\dots,X_n\) be independent Bernoulli random variables. Let \(X = \sum_{i=1}^n X_i\), \(\mathbb{E}[X] \le U\). For small&nbsp;\(\delta &gt;0\), one can use\[\mathbb{P}[X \ge (1+\delta)U] \le \exp(-U\delta^2/(2+\delta))\]When \(\delta \le 1\), often you will see \(\exp(-U\delta^2/3)\). For large \(\delta \ge 2\), the following is stronger:&nbsp;\[\mathbb{P}[X \ge (1+\delta)U] \le \exp(-U\delta \ln \delta/4)\]If you prefer to just remember one bound that can be used to obtain both of these, you can use this for all \(\delta &gt; 0\):\[\mathbb{P}[X \ge (1+\delta)U] &lt; \left(\frac{e^\delta}{(1+\delta)^{1+\delta}}\right)^U\]In practice it is just slightly more cumbersome to use. On the quiz, either remember the two bounds for differing values of delta or remember the last bound.<br></center></td><td width="33.333333333333336%"><center><div class="front">
+Definition of Approximation Algorithm
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+An \(\alpha\)-approximation for an optimization problem is a polynomial time algorithm which produces a solution of cost within a factor of \(\alpha\) of the optimal solution for every instance.</center></td><td width="33.333333333333336%"><center><div class="front">
+Definition of a vertex of a polyhedron and of an extreme point solution
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+A&nbsp; vertex of a polyhedron \(P\) is a point \(x\) for which these exists no non-zero direction \(d\) such that \(x+d \in P\) and \(x-d \in P\).&nbsp;<br><br>Given an LP over a polyhedron \(P\), an extreme point solution is a vertex of \(P\). As long as the optimal solution to this LP is bounded, there is guaranteed to be an optimal solution which is a vertex. This can be proved using Carathéodory's theorem.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Ellipsoid method and separation oracle
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Let \(P\) be a convex set. A separation oracle for \(P\) is&nbsp;a polynomial time procedure that given a point \(x \in \mathbb{R}^n\), either certifies that \(x \in P\) or returns a hyperplane that separates \(x\) from \(P\). In other words, it returns a a vector \(a \in \mathbb{R}^n\) such that \(a^Tx &gt; a^Ty\) for all \(y \in P\).&nbsp;<br><br>The ellipsoid method is a polynomial time algorithm that can optimize over any convex set with a separation oracle. (In other words, it can solve any LP whose feasible region is convex and has a separation oracle.)<br><br>In this course, \(P\) will typically be a convex polyhedron defined by a (possibly exponential size) collection of hyperplanes, and our separation oracle will return one of these hyperplanes.</center></td><td width="33.333333333333336%"><center><div class="front">
+Hoffman's Circulation Theorem
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Let \(G=(V,A)\) be a directed graph. A flow \(f:A \to \mathbb{R}_{\ge 0}\) is a called a circulation if it has equal in and out degree at every vertex.&nbsp;<br><br>Hoffman's circulation theorem says that given two flows \(f^l,f^r\), there is an circulation \(r\) with \(f^l_a \le r_a \le f^r_a\) for all \(a \in A\) if and only if \(f^u-f^l \in \mathbb{R}^A_{\ge 0}\) and for all \(S \subset V\), \(f^l(\delta^-(S)) \le f^u(\delta^+(S))\). Remember \(\delta^-(S)\) is the set of edges entering a cut \(S\) and \(\delta^+(S)\) the set of edges leaving.<br><br>Finally (and crucially), if \(f^l,f^r\) are integer valued, we can choose \(r\) to be integer valued. This can be proved by showing that the extreme points of the circulation polytope are integral whenever the lower and upper bounds are integral.&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Independent Randomized Rounding
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+In independent randomized rounding, we treat a variable \(x_i\) as a probability. Typically, we will have each \(x_i \in [0,1]\) and we round each variable independently \(i\) to 1 with probability \(x_i\).&nbsp;<br><br>This method is used in a straightforward manner for Set Cover (Homework 1) and Karger's argument for \(k\)-edge-connectivity. For the min-congestion multi-commodity flow problem, we treat the paths for each commodity as an independent distribution, but (in a slight twist of this framework) ensure we pick exactly one path. This allows us to ensure we get a feasible solution with probability 1 but still apply Chernoff / Union bounds.&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Integer Linear Program and Linear Program Relaxation
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+An Integer Linear Program (ILP) minimizes a linear objective function over a convex polyhedron \(P\). The variables are constrained to be integers.&nbsp;\[\begin{align*} \min c^Tx \\ x \in P \\ x \in \mathbb{Z}_{\ge 0}^n
+\end{align*}\]If we instead only constrain the variables to be real numbers, we get a Linear Program (LP):\[\begin{align*} \min c^Tx \\ x \in P \\ x \in \mathbb{R}_{\ge 0}^n
+\end{align*}\]Note we can flip min to max by negating the entries of \(c\), so these programs are fully general.&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Integrality Gap
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+The integrality gap of an ILP and its associated LP is the worst case ratio between the ILP OPT and the LP OPT over all instances.</center></td><td width="33.333333333333336%"><center><div class="front">
+Nash Williams Theorem
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Every \(k\)-edge-connected graph contains \(k/2\) edge disjoint spanning trees.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Negative correlation
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Bernoulli random variables \(X_1,\dots,X_n\) are negatively correlated if for all \(S \subseteq [n]\), we have\[\mathbb{E}[\prod_{i \in S} X_i] \le \prod_{i \in S} \mathbb{E}[X_i]\]Negative correlation implies the Chernoff bound upper tail<br><br>They have the negative cylinder property if they are both negatively correlated and 0-negatively correlated.</center></td><td width="33.333333333333336%"><center><div class="front">
+Polyhedron and polytope
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+A polyhedron is the intersection of a finite number of halfspaces. A polytope is a bounded polyhedron.</center></td><td width="33.333333333333336%"><center><div class="front">
+Randomized pipage rounding
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a point \(x\) in a matroid base polytope \(P_M\) with at least one fractional coordinate, randomized pipage rounding finds a direction \(d\) with two non-zero coordinates and an \(\epsilon,\delta &gt;0\) such that \(x+\epsilon d \in P_M\) and \(x-\delta d \in P_M\) and both new points have&nbsp;more tight constraints than \(x\). We move randomly to one of the two points so that the expected movement is 0, and the process is iterated until an integral point is found.<br><br>This procedure produces a distribution over bases which is negatively correlated and 0-negatively correlated.&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Relax and round framework
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Start with an ILP with a separation oracle whose feasible solutions are the feasible solutions for your optimization problem. Then, relax it to an LP, which is polynomial time solvable by the ellipsoid method. After solving this LP, round the resulting solution to a feasible integer solution.</center></td><td width="33.333333333333336%"><center><div class="front">
+Spanning tree polytope
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a graph \(G=(V,E)\), the spanning tree polytope is the convex hull of all spanning trees. We proved that it is also equal to the following formulation: the set of points \(x \in \mathbb{R}^n\) such that&nbsp;\[\begin{align*}
+\sum_{e \in E}x_e = |V| -1\\
+\sum_{e \in E(S)} x_e \le |S|-1 &amp;&amp; \forall S \subseteq V\\
+x_e \ge 0 &amp;&amp; \forall e \in E
+\end{align*}\]<br></center></td><td width="33.333333333333336%"><center><div class="front">
+Splitting Off
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a multi-graph \(G=(V,E)\), the splitting off theorem states that for any vertex \(u \in V\)&nbsp;of even degree adjacent to at least two edges with distinct endpoints, there exists a pair of edges \(e=(u,v),f=(u,w)\) such that removing \(e,f\) from \(E\) and adding \((v,w)\)&nbsp;to \(E\) preserves the pairwise connectivity of all pairs of vertices \(a,b \in V \setminus \{u\}\).&nbsp;<br><br>If a vertex is only adjacent to one other vertex, all of the edges adjacent can be deleted without modifying the pairwise connectivity. This means that any vertex of even degree can be "fully" split off, replacing its edges with others that ensure the pairwise connectivities of the remaining vertices remain the same.&nbsp;<br><br>This can be used to show that given a fractional graph, we can fully split off any vertex \(v\) to obtain a new fractional graph on \(V \setminus \{v\}\) with the same pairwise connectivities between all vertices \(s,t \not= v\).&nbsp;&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Thin Trees and the Thin Tree Conjecture
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a \(k\)-edge-connected graph, a spanning tree \(T\) is \(\alpha\)-thin if for every cut \(S \subseteq V\) we have\[|\delta_T(S)| \le \alpha \cdot |\delta(S)|\]The strong thin tree conjecture is that a tree always exists with \(\alpha \in O(1/k)\). The thin tree conjecture simply asks if for large enough \(k\) we can pick \(\alpha = 0.99\). Both conjectures are wide open.<br><br>Given a fractional point \(x\), a spanning tree \(T\) is \(\alpha\)-thin for \(x\) if for every cut \(S \subseteq V\) we have\[|\delta_T(S)| \le \alpha \cdot x(\delta(S))\]To prove the strong thin tree conjecture, it is sufficient to show that we can always find a tree with&nbsp;\(\alpha \in O(1)\)&nbsp;for \(x \in P^\uparrow_{st}\), the dominant of the spanning tree polytope.</center></td><td width="33.333333333333336%"><center><div class="front">
+Threshold rounding
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+The simplest kind of LP rounding. Given an LP solution, round all variables above a certain threshold to their ceiling.&nbsp;<br><br>This works for "covering" problems like Vertex Cover in which the constraints are of the form \(a^Tx \ge b\) for \(a \in \mathbb{R}_{\ge 0}^n, b \in \mathbb{R}\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Union Bound
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given \(n\) events \(B_1,\dots,B_n\), the probability any of the events \(B_i\) occur is at most \(\sum_{i=1}^n \mathbb{P}[B_i]\).&nbsp;<br><br>In its typical usage, we want to avoid all of the events \(B_i\) with some probability. The union bound says that with probability at least \(1-\sum_{i=1}^n \mathbb{P}[B_i]\), none of the events occur.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+\(\alpha\)-near minimum cuts and Karger's bound on their number
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a \(k\)-edge-connected graph, a cut is&nbsp;\(\alpha\)-near minimum if it has at most \(\alpha k\) edges. Karger's bound shows there are at most \(n^{2\alpha}\)&nbsp;\(\alpha\)-near minimum cuts.</center></td></tr></table></body></html>

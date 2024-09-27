@@ -40,7 +40,7 @@ Suppose $P$ is a polytope in $[0,1]_{\ge 0}^n$ and $\tilde{P}$ is the convex hul
 Given a polytope $P$, $P^\uparrow$ is called the \textit{dominant} of $P$ and consists of all points $x$ such that there exists $x' \in P$ for which $x'-x \in \R^n_{\ge 0}$.
 \begin{enumerate}
 	\item Prove that $\alpha \cdot P \subseteq \tilde{P}^\uparrow$ (where $\alpha \cdot P$ consists of all points in $x$ scaled entry-wise by $\alpha$).
-	\item Prove that if $P$ is defined by the constraints $0 \le x_i \le 1$ and a collection of \textit{covering constraints}, i.e. constraints of the form $a^Tx \ge b$ for $a \in \R_{\ge 0}^n, b \in \R_{\ge 0}$, then the integrality gap of the LP $\min c^Tx$ subject to $x \in P$ is at most $\alpha$ for any $c \in \R^n_{\ge 0}$.
+	\item Prove that the integrality gap of the LP $\min c^Tx$ subject to $x \in P$ is at most $\alpha$ for any $c \in \R^n_{\ge 0}$.
 \end{enumerate}
 
 \section{Problem 3: Randomized Pipage Rounding for Matroids}
@@ -74,8 +74,8 @@ Using that $P_M$ has a polynomial time separation oracle for every $M$, implemen
 \begin{enumerate}
 	\item Prove the parsimonious property from Lecture 6 using splitting off. 
 	\item Show that the randomized rounding algorithm for the multi-commodity flow problem can be derandomized using the method of conditional expectation.
-	\item Give an example showing that the Chernoff bound upper tail does not hold for distributions with only \textit{pairwise} negative correlation, i.e. $\P{e,f \in S} \le \P{e \in S}\P{f \in S}$ (and not full negative correlation as we proved for pipage rounding). 
-	\item (***) Prove that swap rounding gives a $1+O(1/\sqrt{k})$ for $k$-ECSM. (Note: This is quite difficult. I think I vaguely see how to prove this but I'm not 100\% sure. This could potentially even be false, although I don't think so. This could be an interesting final project.)
+	\item Give an example showing that the Chernoff bound upper tail does not hold for distributions with only \textit{pairwise} negative correlation, i.e. $\P{e,f \in S} \le \P{e \in S}\P{f \in S}$ (and not full negative correlation as we proved for pipage rounding).
+	\item (***) Prove that pipage rounding can be used to give a  $1+O(1/\sqrt{k})$ for $k$-ECSM. (Note: This is quite difficult. I think I vaguely see how to prove this but I'm not 100\% sure. This could potentially even be false, although I don't think so. This could be an interesting final project.)
 \end{enumerate}
 
 \end{document}

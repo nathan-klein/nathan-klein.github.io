@@ -28,7 +28,7 @@ td { border: 1px solid #ccc; padding: 1em; }
 .playImage { display: none; }
 </style>
 
-<table cellspacing=10 width=100%><tr><td width="33.333333333333336%"><center><div class="front">
+</style><table cellspacing=10 width=100%><tr><td width="33.333333333333336%"><center><div class="front">
 0-negative correlation
 </div>
 <div class="front">
@@ -160,7 +160,7 @@ Splitting Off
 <div class="front">
 <hr id=answer>
 </div>
-Given a multi-graph \(G=(V,E)\), the splitting off theorem states that for any vertex \(u \in V\)&nbsp;of even degree adjacent to at least two edges with distinct endpoints, there exists a pair of edges \(e=(u,v),f=(u,w)\) such that removing \(e,f\) from \(E\) and adding \((v,w)\)&nbsp;to \(E\) preserves the pairwise connectivity of all pairs of vertices \(a,b \in V \setminus \{u\}\).&nbsp;<br><br>If a vertex is only adjacent to one other vertex, all of the edges adjacent can be deleted without modifying the pairwise connectivity. This means that any vertex of even degree can be "fully" split off, replacing its edges with others that ensure the pairwise connectivities of the remaining vertices remain the same.&nbsp;<br><br>This can be used to show that given a fractional graph, we can fully split off any vertex \(v\) to obtain a new fractional graph on \(V \setminus \{v\}\) with the same pairwise connectivities between all vertices \(s,t \not= v\).&nbsp;&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Given a multi-graph \(G=(V,E)\), the splitting off theorem states that for any vertex \(u \in V\)&nbsp;of even degree \(2k\), if \(u\) is not incident to any cut edge (an edge whose removal would disconnect the graph), the edges \(uv\) adjacent to&nbsp;\(u\) can be paired up into groups \((ua_1,ub_1),(ua_2,ub_2),\dots,(ua_k,ub_k)\) such that after removing all the edges adjacent to \(u\) and adding edges \(\{a_i,b_i\}\) for all \(i\) the pairwise connectivites \(a,b\) for any vertices \(a,b \not= u\) do not decrease.&nbsp;<br><br>This can be used to show that given a fractional graph, we can fully split off any vertex \(v\) to obtain a new fractional graph on \(V \setminus \{v\}\) with the same pairwise connectivities between all vertices \(s,t \not= v\).&nbsp;&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 Thin Trees and the Thin Tree Conjecture
 </div>
 <div class="front">

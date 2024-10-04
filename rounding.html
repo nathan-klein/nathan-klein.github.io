@@ -223,7 +223,7 @@
                 </ul>  
             </details>
 
-            <h3>Weeks 3, 4, and part of 5: Dependent Randomized Rounding</h3>
+            <h3>Weeks 3, 4, and 5: Dependent Randomized Rounding</h3>
 
             <details>
                 <summary><b>Lecture 5, Tuesday 9/17:</b> Randomized Pipage Rounding <a href="./materials/Lecture 5.pdf">[Notes]</a></summary>
@@ -250,7 +250,7 @@
             </details>
 
             <details>
-                <summary><b>Lecture 9, Tuesday 10/1:</b> Overflow, Open Questions, and Work Session <a href="./materials/Rounding Techniques (Quiz 2).apkg">[Flashcards]</a> <a href="./materials/Anki.html">[HTML]</a></summary>
+                <summary><b>Lecture 9, Tuesday 10/1:</b> Overflow, Quiz 2, Open Questions, and Work Session <a href="./materials/Rounding Techniques (Quiz 2).apkg">[Flashcards]</a> <a href="./materials/Anki.html">[HTML]</a></summary>
                 
                 We will finish the previous lecture and give time for questions on what we have covered so far. Then we will have a short quiz on the flashcards posted for this lecture, after which some open questions will be discussed.
 
@@ -263,24 +263,24 @@
                 </ul>
             </details>
 
-            <h3>Rest of Week 5, and Weeks 6 and 7: Iterative Rounding and Relaxation</h3>
+            <details>
+                <summary><b>Class Canceled on Thursday 10/3</b></summary>
+               
+                Take a look at <a href="https://www.contrib.andrew.cmu.edu/~ravi/book.pdf">this</a> book to prepare for next week.
+            </details> 
+
+            <h3>Weeks 6, 7, and 8: Sparsity, Iterative Rounding, and Relaxation</h3>
 
             <details>
-                <summary><b>Lecture 10, Thursday 10/3:</b> Integrality of the Spanning Tree Polytope, Matroids</summary>
+                <summary><b>Lecture 10, Tuesday 10/8:</b> Convex Geometry, Sparsity, and Unrelated Parallel Machines</summary>
                 
-                We will go over some LP basics and prove (again) that the spanning tree polytope has integral vertices with a token-counting argument. We will then extend this to all matroids and matroid intersection. See Sections 1 and 4 of the <a href="https://www.contrib.andrew.cmu.edu/~ravi/book.pdf">iterative rounding book</a>. 
+                We will go over some basics of convex geometry, in particular showing the equivalence of a vertex, an extreme point, and the unique solution to a subset of tight constraints. We will discuss how this leads to "sparsity," the phenomenon that extreme points can often be shown to have few non-zero entries, and apply it to approximating the problem of minimizing the makespan on unrelated parallel machines (here is the original paper by <a href="course/UPM.pdf">[Lenstra, Shmoys, and Tardos]</a>). Related lectures: <a href="https://www.cs.dartmouth.edu/~deepc/LecNotes/Appx/4a.%20Crash%20Course%20on%20Linear%20Programming.pdf">[Chakrabarty]</a> <a href="https://courses.grainger.illinois.edu/cs598csc/sp2011/Lectures/lectures_10-11.pdf">[Chekuri/Ene]</a>
             </details>
 
             <details>
-                <summary><b>Lecture 11, Tuesday 10/8:</b> Iterative Rounding – Jain's Approximation for Survivable Network Design</summary>
+                <summary><b>Lecture 11, Thursday 10/10:</b> Iterative Rounding – Jain's Approximation for Survivable Network Design</summary>
 
-                We will introduce the idea of iterative rounding and prove a 2-approximation for the survivable network design problem. See Chapter 10 of the <a href="https://www.contrib.andrew.cmu.edu/~ravi/book.pdf">iterative rounding book</a>. 
-            </details>
-
-            <details>
-                <summary><b>Lecture 12, Thursday 10/10:</b> Iterative Relaxation – Beck-Fiala and Bounded Degree Matroids</summary>
-
-                We will introduce the idea of iterative relaxation and prove the Beck-Fiala Theorem and the existence of bounded degree matroid bases. 
+                We will introduce the idea of iterative rounding and prove a 2-approximation for the survivable network design problem. See Jain's original paper <a href="https://link.springer.com/article/10.1007/s004930170004">here</a> and a paper by <a href="https://chekuri.cs.illinois.edu/papers/sndp-iterated-rounding.pdf">[Chekuri and Rukkanchanunt]</a> that gives a simplified proof. See Chapter 10 of the <a href="https://www.contrib.andrew.cmu.edu/~ravi/book.pdf">iterative rounding book</a>. Related lecture notes: <a href="https://courses.grainger.illinois.edu/cs598csc/sp2009/Lectures/lecture_14_draft.pdf">[Chekuri]</a> <a href="https://theory.epfl.ch/osven/courses/Approx13/Notes/lecture8.pdf">[Svensson and Newman]</a>
             </details>
 
             <!-- <details>
@@ -296,38 +296,50 @@
             </details>
 
             <details>
-                <summary><b>Lecture 13, Tuesday 10/17:</b> Overflow, Open Questions, and Work Session</summary>
+                <summary><b>Lecture 12, Thursday 10/17: </b> Iterative Relaxation for Discrepency and Uncrossing</summary>
 
-                We will finish the previous lecture and give time for questions on what we have covered on iterative rounding and relaxation. Some open questions will be discussed. Time permitting, some group work on the homework. 
+                We will introduce the idea of iterative relaxation and prove the Beck-Fiala discrepancy theorem. We will then begin to discuss an uncrossing theorem for collections of matroid constraints that will be useful in the next lecture.
             </details>
 
-            <h3>Weeks 8 and 9: Iterative Randomized Rounding</h3>
+            <details>
+                <summary><b>Lecture 13, Tuesday 10/22: </b> Iterative Relaxation for Bounded Degree Matroids</summary>
+
+                We will introduce the idea of iterative relaxation and prove the Beck-Fiala discrepancy theorem. We will then discuss how to obtain bounded degree spanning trees and more generally bounded degree matroid bases. 
+            </details>
 
             <details>
-                <summary><b>Lecture 14, Tuesday 10/22:</b>  Sub-isotropic Rounding</summary>
+                <summary><b>Lecture 14, Thursday 10/24:</b> Overflow, Quiz 3, Open Questions, and Work Session</summary>
+
+                We will finish the previous lecture and give time for questions on what we have covered on iterative rounding and relaxation. After a short quiz, some open questions will be discussed. Time permitting, there will be some group work on the homework. 
+            </details>
+
+            <h3>Weeks 9 and 10: Iterative Randomized Rounding</h3>
+
+            <details>
+                <summary><b>Lecture 14, Tuesday 10/29:</b>  Sub-isotropic Rounding</summary>
 
                 We will discuss a recent work by <a href="https://arxiv.org/pdf/1811.01597">Bansal</a> which combines the techniques we have learned about over the past two units. 
             </details>
 
             <details>
-                <summary><b>Lecture 15, Thursday 10/24:</b> Sub-isotropic Rounding (Part 2)</summary>
+                <summary><b>Lecture 15, Thursday 10/31:</b> Sub-isotropic Rounding (Part 2)</summary>
 
                 We will prove several of the technical lemmas that were omitted from the last lecture.  
             </details>
 
             <details>
-                <summary><b>Lecture 16, Tuesday 10/29:</b> Applications of Sub-isotropic Rounding</summary>
+                <summary><b>Lecture 16, Tuesday 11/5:</b> Applications of Sub-isotropic Rounding</summary>
 
                 We will discuss applications of this rounding method in discrepancy, thin trees, and scheduling on unrelated parallel machines.   
             </details>
 
             <details>
-                <summary><b>Lecture 17, Thursday 10/31:</b> Overflow, Open Questions, and Work Session</summary>
+                <summary><b>Lecture 17, Thursday 11/7:</b> Overflow, Open Questions, and Work Session</summary>
 
                 We will finish the previous lecture and give time for questions. Some open questions will be discussed. Time permitting, some group work on the homework. 
             </details>
 
-            <h3>Week 10: Nash Social Welfare</h3>
+            <!-- <h3>Week 10: Nash Social Welfare</h3>
 
             <details>
                 <summary><b>Lecture 18, Tuesday 11/5:</b> An Introduction to Nash Social Welfare</summary>
@@ -339,7 +351,7 @@
                 <summary><b>Lecture 19, Thursday 11/7:</b> An \(e^{-1/e}\) Approximation for Weighted Nash Social Welfare with Additive Valuations</summary>
 
                 We will discuss a very recent result of <a href="https://arxiv.org/pdf/2404.15607">Feng and Shi</a> which gives a \(e^{1/e}+\epsilon\) approximation for this problem via a configuration LP. 
-            </details>
+            </details> -->
 
             <h3>Week 11: TBD (at workshop)</h3>
 

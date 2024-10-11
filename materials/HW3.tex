@@ -1,0 +1,62 @@
+\include{preamble.tex}
+
+\renewcommand{\P}[1]{{\mathbb{P}}\left[#1\right]}
+\renewcommand{\PP}[2]{{\mathbb{P}}_{#1}\left[#2\right]}
+\renewcommand{\E}[1]{{\mathbb{E}}\left[#1\right]}
+\renewcommand{\EE}[2]{{\mathbb{E}}_{#1}\left[#2\right]}
+\renewcommand{\R}{\ensuremath{\mathbb R}}
+\renewcommand{\Z}{\ensuremath{\mathbb Z}}
+\def\cI{{\cal I}}
+
+\begin{document}
+
+\noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 5.78in { {\bf CS 599: Rounding Techniques in Approximation Algorithms} \hfill  }
+       \vspace{4mm}
+       \hbox to 5.78in { {\Large \hfill Homework 3: Sparsity and Iterated Rounding/Relaxation \hfill} }
+             \vspace{2mm}
+       \hbox to 5.78in { {\it Fall 2024 \hfill } }
+      }
+   }
+   \end{center}
+
+\pagestyle{empty}
+
+\vspace*{3mm}
+\noindent {\large \textcolor{purple}{Collect at least 3 points from the following 4 problems, or do more for extra credit. Normal problems are worth 1 point. The bonus versions are worth two points. (Do not do both for any problem.)}}
+
+\vspace*{-3mm}
+\section{Problem 1: Sparsity for Unweighted $k$-Edge-Connectivity}
+
+Give a $1+O(1/k)$ approximation for the unweighted minimum $k$-edge-connected spanning subgraph problem using sparsity. Recall here we are given a $k$-edge-connected graph $G=(V,E)$ and want to return a subset of edges $F \subseteq E$ of minimum size so that $G'=(V,F)$ is $k$-edge-connected.\\
+
+\noindent \textbf{Bonus:} Design a $1+O(1/k)$ approximation for the unweighted minimum $k$-arc connected spanning subgraph problem instead. In other words, prove the same but for directed graphs when you want to have $k$ edges going in each direction across every cut. 
+
+\section{Problem 2: Iterative Rounding for 3-Dimensional Matching}
+
+Consider a hypergraph $H=(V,E)$ with a vertex set and a collection of hyperedges $E \subseteq 2^V$. A collection $M \subseteq E$ is a matching if all $e,f \in M$ have $e \cap f = \emptyset$. Give a 2-approximation for the problem of finding a maximum size matching when $|e| = 3$ for all $e \in E$ (i.e. when $H$ is 3-partite).
+
+\section{Problem 3: Iterative Relaxation for Beck-Fiala}
+
+Improve the Beck-Fiala bound to $2t-1$. \\
+
+\noindent \textbf{Bonus:} Improve the Beck-Fiala bound to $2t-3$ for $t \ge 3$ instead. 
+
+\section{Problem 4: Integrality for Matching}
+
+Design a polynomial time algorithm for maximum weight bipartite matching using an LP. Generalize it to work in the case when all vertices $v$ have a required degree $d_v \in \Z_{\ge 0}$. \\
+
+\noindent \textbf{Bonus:} Design an LP-based polynomial time algorithm for maximum weight perfect matching on general graphs instead (which can be used to solve maximum weight matching). You may use without proof that the family of inequalities $x(\delta(S)) \ge 1$ for all $S \subset V: |S| \text{ odd}$ has a polynomial time separation oracle. 
+
+
+
+%\section{Problem 4: No Need to Re-Solve}
+%
+%An unfortunate quality of the +1 bounded degree spanning algorithm is that it re-solves the LP at every step to obtain a new vertex. This is a fairly costly operation. Show that instead of re-solving, there is a way to easily update the solution 
+%
+%This is Exercise 4.4 in the iterative rounding book. 
+
+\end{document}

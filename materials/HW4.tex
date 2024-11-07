@@ -1,0 +1,52 @@
+\include{preamble.tex}
+
+\renewcommand{\P}[1]{{\mathbb{P}}\left[#1\right]}
+\renewcommand{\PP}[2]{{\mathbb{P}}_{#1}\left[#2\right]}
+\renewcommand{\E}[1]{{\mathbb{E}}\left[#1\right]}
+\renewcommand{\EE}[2]{{\mathbb{E}}_{#1}\left[#2\right]}
+\renewcommand{\R}{\ensuremath{\mathbb R}}
+\renewcommand{\Z}{\ensuremath{\mathbb Z}}
+\def\cI{{\cal I}}
+
+\begin{document}
+
+\noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 5.78in { {\bf CS 599: Rounding Techniques in Approximation Algorithms} \hfill  }
+       \vspace{4mm}
+       \hbox to 5.78in { {\Large \hfill Homework 4: Iterative Randomized Rounding and SDPs \hfill} }
+             \vspace{2mm}
+       \hbox to 5.78in { {\it Fall 2024 \hfill } }
+      }
+   }
+   \end{center}
+
+\pagestyle{empty}
+
+\vspace*{3mm}
+\noindent {\large \textcolor{purple}{Do at least two of the following three problems.}}
+
+\section{Problem 1: Beck-Fiala}
+
+Use the iterative randomized rounding framework to prove a bound of $O(\sqrt{t \log n})$ for Beck-Fiala, where $n$ is the number of edges and the hypergraph has maximum degree $t$. 
+
+\section{Problem 2: Matroid Intersection with Concentration}
+
+Let $M_1=(\cI_1,E)$ and $M_2=(\cI_2,E)$ be two matroids over the same ground set $E$. Let $x$ be a point in the matroid intersection polytope $P_{M_1 \cap M_2}$. Give a polynomial algorithm that given $x$ produces a set $I \subseteq E$ such that:
+\begin{enumerate}
+	\item $c(I) \le 2c(x)$,
+	\item $I$ contains a basis of $M_1$ and $M_2$,
+	\item For any set of elements $F \subseteq E$, $\P{|F \cap I| \ge 2(1+\epsilon) \cdot  x(F)} \le e^{-\Omega(\epsilon^2 \cdot x(F))}$.
+\end{enumerate}
+\textbf{Hint 1:} Use the iterative randomized relaxation framework with a slight twist.\\
+
+\noindent\textbf{Hint 2:} The set of constraints in $P^\uparrow_M$ can be uncrossed to form a chain for any matroid similar to the constraints for $P_M$. You may use this as a given if you'd like.
+
+
+\section{Problem 3: SDPs}
+
+Read Section 13.2 of the Williamson-Shmoys book and show that the algorithm there can be used to color a 3-colorable graph with $\tilde{O}(n^{1/4})$ colors (where $\tilde{O}$ hides polylogarithmic factors), i.e. do Exercise 13.1 in the Williamson-Shmoys book. 
+
+\end{document}

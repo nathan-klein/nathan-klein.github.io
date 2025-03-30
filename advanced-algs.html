@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rounding Techniques</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.jpg">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+    integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+    integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+    crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+    integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1e4a7c;
+            color: white;
+            text-align: center;
+            padding: 3px 3px;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            margin: 20px auto;
+            margin-top: 0px;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 7px;
+            text-align: left;
+            border-bottom: 1px solid #010101;
+            border-right: 1px solid #010101; 
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .materials a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .materials a:hover {
+            text-decoration: underline;
+        }
+        details > summary {
+            margin-bottom: 8px;
+        }       
+        details {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>CS 530: Advanced Algorithms (Fall 2025)</h2>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#homework">Homework</a>
+        <a href="#textbooks">Resources</a>
+        <a href="#schedule">Schedule</a>
+        <a href="./materials-advanced-algs/Syllabus.pdf">Syllabus</a>
+    </nav>
+
+    <div class="container">
+        <section id="info">
+            <h2>Course Information</h2>
+            <p><b>Instructor:</b> <a href="https://nathan-klein.github.io/">Nathan Klein</a></p>
+            <p><b>Syllabus:</b> <a href="./materials-advanced-algs/Syllabus.pdf">Link</a></p>
+            <p><b>Lectures:</b> Tuesday and Thursday, 9:30 - 10:45am in MCS B37</p>
+            <p><b>Office Hours:</b> Monday 2:00 - 3:00, Tuesday 11:00 - 12:30, Thursday 11:00 - 12:30, and by appointment </p>
+            <p><b>Prerequisites:</b> Strong undergraduate-level knowledge of algorithms, linear algebra, and
+                probability. Motivated, mathematically mature undergraduate students who have excelled in CS 237 and CS 330 are also welcome.</p>
+            <p><b>Grading:</b> Homework (35% with lowest score dropped), midterm (20%), participation and (basic informational) quizzes (15%), and a final project (30%)</p>
+        </section>
+
+        <section id="overview">
+            <h2>Overview</h2>
+            <p>This course surveys a collection of beautiful ideas in algorithms. From the curse of dimensionality to spectral graph theory to the price of anarchy, we will focus on understanding the important conceptual contributions of the field of algorithms over the last 50 years.</p>
+        </section>
+
+        <section id="homework">
+            <h2>Homework</h2>
+            <ul>
+                <!--<li><a href="./materials-advanced-algs/HW1.pdf">Homework 1</a> <a href="./materials-advanced-algs/HW1.tex">[TeX]</a> (due 9/19)</li>-->
+            </ul>
+        </section>
+
+        <section id="textbooks">
+            <h2>Related Textbooks and Materials</h2>
+            <ul>
+                <li><a href="https://www.lkozma.net/inequalities_cheat_sheet/ineq.pdf">Useful Inequalities</a></li>
+            </ul>
+        </section>
+
+        <section id="courses">
+            <h2>Related Courses</h2>
+            <ul>
+                <li><a href="https://www.cs.princeton.edu/courses/archive/fall14/cos521/">Advanced Algorithm Design (Arora)</a></li>
+                <li><a href="https://courses.cs.washington.edu/courses/cse521/21au/">Design and Analysis of Algorithms (Oveis Gharan)</a></li>
+                <li><a href="https://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15750-s22/www/">Algorithms in the Real World (Gupta and Vinayak)</a></li>
+            </ul>
+        </section>
+
+        <section id="schedule">
+            <h2>Course Schedule (Under Construction)</h2>
+
+            <!--<h3>Weeks 1 and 2: Intro and Independent Randomized Rounding</h3>
+            
+            <details>
+                <summary><b>Lecture 1, Tuesday 9/3:</b> Admin, Introduction to Approximation Algorithms and Rounding <a href="./materials/Lecture 1.pdf">[Notes]</a></summary>
+                    
+                We will use Vertex Cover to review the basics of approximation algorithms, linear programming, integrality gaps, and the relax and round framework. Related lectures: <a href="https://www.cs.dartmouth.edu/~deepc/LecNotes/Appx/4.%20Linear%20Programming%20Relaxations.pdf" target="_blank">[Chakrabarty]</a>. 
+            </details>-->
+
+
+        </section>
+    </div>
+</body>
+
+</html>

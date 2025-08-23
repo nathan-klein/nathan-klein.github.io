@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rounding Techniques</title>
+    <title>Advanced Algorithms</title>
     <link rel="icon" type="image/x-icon" href="./favicon.jpg">
     <link rel="stylesheet" href="styles.css">
 
@@ -120,10 +120,11 @@
             <p><b>Instructor:</b> <a href="https://nathan-klein.github.io/">Nathan Klein</a></p>
             <p><b>Syllabus:</b> <a href="./materials-advanced-algs/Syllabus.pdf">Link</a></p>
             <p><b>Lectures:</b> Tuesday and Thursday, 9:30 - 10:45am in MCS B37</p>
-            <p><b>Office Hours:</b> Monday 2:00 - 3:00, Tuesday 11:00 - 12:30, Thursday 11:00 - 12:30, and by appointment </p>
-            <p><b>Prerequisites:</b> Strong undergraduate-level knowledge of algorithms, linear algebra, and
-                probability. Motivated, mathematically mature undergraduate students who have excelled in CS 237 and CS 330 are also welcome.</p>
-            <p><b>Grading:</b> Homework (35% with lowest score dropped), midterm (20%), participation and (basic informational) quizzes (15%), and a final project (30%)</p>
+            <p><b>Office Hours:</b> Monday 2:00 - 3:00, Tuesday 11:00 - 12:30, Thursday 11:00 - 12:30, and by appointment in CDS 1026</p>
+            <p><b>Teaching Assistant:</b> Pooria Farahani</p>
+	    <p><b>Discussion Sections:</b> Wednesday 10:10am - 11:00 and 11:15am - 12:05 in CDS 801.</p>
+            <p><b>Prerequisites:</b> Strong undergraduate-level knowledge of algorithms, linear algebra, and probability. Motivated, mathematically mature undergraduate students who have excelled in CS 237 and CS 330 are also welcome.</p>
+            <p><b>Grading:</b> Homework (35% with lowest score dropped), midterm (20%), participation and (basic informational) quizzes (20%), and a final exam or final project (25%). Note that final projects replace the final exam, but need to be discussed with me early, with a proposal submitted by 10/24. They should be in groups of 1-3 people.</p>
         </section>
 
         <section id="overview">
@@ -141,7 +142,15 @@
         <section id="textbooks">
             <h2>Related Textbooks and Materials</h2>
             <ul>
-                <li><a href="https://www.lkozma.net/inequalities_cheat_sheet/ineq.pdf">Useful Inequalities</a></li>
+                <li><a href="https://www.designofapproxalgs.com/download.php">The Design of Approximation Algorithms
+                        (Williamson and Shmoys)</a></li>
+		<li><a href="https://rajsain.wordpress.com/wp-content/uploads/2013/11/randomized-algorithms-motwani-and-raghavan.pdf">Randomized Algorithms (Motwani and Raghavan)</a></li>
+		<li><a href="https://www.cs.cornell.edu/jeh/book.pdf">Foundations of Data Science (Blum, Hopcraft, and Kannan)</a></li>
+                <li><a href="https://www.contrib.andrew.cmu.edu/~ravi/book.pdf">Iterative Methods in Combinatorial
+                        Optimization (Lau, Ravi, and Singh)</a></li>
+                <li><a href="https://ics.uci.edu/~vazirani/book.pdf">Approximation Algorithms (Vazirani)</a></li>
+                <li><a href="https://www.lkozma.net/inequalities_cheat_sheet/ineq.pdf">Useful Inequalities (Kozma)</a></li>
+		<li><a href="https://www.princeton.edu/~aaa/Public/Teaching/ORF363_COS323/F24/ORF363_COS323_F24_Lec2.pdf">Review of Linear Algebra and Multivariable Calculus for TCS (Ahmadi)</a></li>
             </ul>
         </section>
 
@@ -151,21 +160,163 @@
                 <li><a href="https://www.cs.princeton.edu/courses/archive/fall14/cos521/">Advanced Algorithm Design (Arora)</a></li>
                 <li><a href="https://courses.cs.washington.edu/courses/cse521/21au/">Design and Analysis of Algorithms (Oveis Gharan)</a></li>
                 <li><a href="https://www.cs.cmu.edu/afs/cs.cmu.edu/academic/class/15750-s22/www/">Algorithms in the Real World (Gupta and Vinayak)</a></li>
+		<li><a href="https://www.cs.princeton.edu/~smattw/Teaching/cos521fa21.htm">Advanced Algorithms Design (Braverman and Weinberg)</a></li>
+ 		<li><a href="https://web.stanford.edu/class/cs168/">The Modern Algorithmic Toolbox (Valiant and Roughgarden)</a></li>
+		<li><a href="https://pages.cs.wisc.edu/~shuchi/courses/787-F09/">Advanced Algorithms (Chawla)</a></li>
+		<li><a href="https://www.cs.cmu.edu/~venkatg/teaching/CStheory-infoage/">Computer Science for the Information Age (Guruswami and Kannan)</a></li>
             </ul>
         </section>
 
+		
+
         <section id="schedule">
-            <h2>Course Schedule (Under Construction)</h2>
+            <h2>Course Schedule</h2>
+	    This course is organized around problems computer scientists face in the real world, and explores theoretical tools that can help solve them.
+	    <h3>Part 1: Data</h3>
+	    What to do when there's too much data to store it all, how to deal with high dimensional data, and finding low space approximations to matrices.<br><br>
+	    <details>
+		<summary><b>Lecture 1, Tuesday 9/2:</b> Admin, Course Survey, Concentration Bounds</summary>
 
-            <!--<h3>Weeks 1 and 2: Intro and Independent Randomized Rounding</h3>
-            
-            <details>
-                <summary><b>Lecture 1, Tuesday 9/3:</b> Admin, Introduction to Approximation Algorithms and Rounding <a href="./materials/Lecture 1.pdf">[Notes]</a></summary>
-                    
-                We will use Vertex Cover to review the basics of approximation algorithms, linear programming, integrality gaps, and the relax and round framework. Related lectures: <a href="https://www.cs.dartmouth.edu/~deepc/LecNotes/Appx/4.%20Linear%20Programming%20Relaxations.pdf" target="_blank">[Chakrabarty]</a>. 
-            </details>-->
+	    </details> 
+	    <details>
+		<summary><b>Lecture 2, Thursday 9/4:</b> Streaming and Sketching</summary>
+	
+	    </details>
+	    <details>
+		<summary><b>Lecture 3, Tuesday 9/9:</b> High Dimensional Geometry and the Curse (and Blessing) of Dimensionality</summary>
+
+	    </details> 
+	    <details>
+		<summary><b>Lecture 4, Thursday 9/11:</b> Low Rank Approximation</summary>
+	
+	    </details>
+	    <details>
+		<summary><b>Lecture 5, Tuesday 9/16:</b> Overflow, Quiz 1, and Work Session</summary>
+
+	    </details> 
+
+	    <h3>Part 2: NP-Hard problems</h3>
+	    What to do when you need to solve an NP-Hard problem.<br><br>
+	    <details>
+		<summary><b>Lecture 6, Thursday 9/18:</b> Intro to Approximation Algorithms. </summary>
+	
+	    </details>
+
+	    <details>
+		<summary><b>Lecture 7, Tuesday 9/23:</b> The Relax-and-Round Framework</summary>
+
+	    </details> 
+	    <details>
+		<summary><b>Lecture 8, Thursday 9/25:</b> Convex Geometry and Unrelated Parallel Machines</summary>
+	
+	    </details>
+
+	    <details>
+		<summary><b>Lecture 9, Tuesday 9/30:</b> Max Cut and Semidefinite Programming</summary>
+
+	    </details> 
+	    <details>
+		<summary><b>Lecture 10, Thursday 10/2:</b> Overflow, Quiz 2, and Work Session </summary>
+	
+	    </details>
+
+	    <h3>Part 3: Online Algorithms</h3>
+	    How to design and evaluate algorithms when your input is not known in advance.<br><br>
+	    <details>
+		<summary><b>Lecture 11, Tuesday 10/7:</b> Online Algorithms, Competitive Ratios, and the Secretary Problem</summary>
+
+	    </details> 
+	    <details>
+		<summary><b>Lecture 12, Thursday 10/9:</b> Online Bipartite Matching and Primal-Dual Analysis</summary>
+	
+	    </details>
+	    <details>
+		<summary><b>No Class on Tuesday 10/14:</b> BU is on a Monday schedule</summary>
+
+	    </details> 
+	    <details>
+		<summary><b>Thursday 10/16:</b> In-class midterm</summary>
+	
+	    </details>
+
+	    <h3>Part 4: Average Case Analysis and Algorithms with Predictions</h3>
+	    
+	    Another approach to NP-hard problems is to step away from worst case analysis. We explore how hard problems can be easy on average and how machine learning and worst-case analysis can work together.<br><br>
+	    <details>
+		<summary><b>Lecture 13, Tuesday 10/21:</b> Average Case Analysis</summary>
+
+	    </details> 
+	    <details>
+		<summary><b>Lecture 14, Thursday 10/23:</b> Algorithms with Predictions</summary>
+	
+	    </details>
 
 
+	    <h3>Part 5: Selfish Agents and Game Theory</h3>
+ 	    What to do when you can't impose a solution because the agents behave selfishly, or you're trying to maximize your utility in a multi-player game.<br><br>
+	    <details>
+		<summary><b>Lecture 15, Tuesday 10/28:</b> Zero Sum Games, Min-Max Theorem</summary>
+
+	    </details> 
+	    <details>
+		<summary><b>Lecture 16, Thursday 10/30:</b> Nash Equilibria and the Price of Anarchy</summary>
+	
+	    </details>
+
+	    <details>
+		<summary><b>Lecture 17, Tuesday 11/4:</b> Modeling Uncertainty</summary>
+
+	    </details> 
+	    <details>
+		<summary><b>Lecture 18, Thursday 11/6:</b> Overflow, Quiz 3, and Work Session</summary>
+	
+	    </details>
+
+	    <h3>Part 6: Coding Theory</h3>
+	    What to do when data might be lost or corrupted.<br><br>
+	    <details>
+		<summary><b>Lecture 19, Thursday 11/11:</b> Intro to Coding Theory</summary>
+	
+	    </details>
+	    <details>
+		<summary><b>Lecture 20, Tuesday 11/13:</b> Reed-Solomon Codes</summary>
+
+	    </details> 
+
+	    <h3>Part 7: Random Walks and Spectral Graph Theory</h3>
+	    Understanding graphs with linear algebra.<br><br>
+	    <details>
+		<summary><b>Lecture 21, Tuesday 11/18:</b> Random Walks</summary>
+
+	    </details> 
+	    <details>
+		<summary><b>Lecture 22, Thursday 11/20:</b> The Laplacian and Sparsest Cut</summary>
+	
+	    </details>
+	    <details>
+		<summary><b>Lecture 23, Tuesday 11/25:</b> Cheeger's Inequality and Clustering</summary>
+
+	    </details> 
+
+	    <details>
+		<summary><b>No Class on Thursday 11/27:</b> Fall Break</summary>
+	
+	    </details>
+
+	    <details>
+		<summary><b>Lecture 24, Tuesday 12/2:</b> Overflow, Quiz 4, Course Summary</summary>
+
+	    </details> 
+
+	    <h3>Part 8: The End</h3>
+	    <details>
+		<summary><b>Lecture 25, Thursday 12/4:</b> TBD by class vote (or project presentations depending on the number of groups)</summary>
+	
+	    </details>
+	    <details>
+		<summary><b>Lecture 26, Tuesday 12/9:</b> Project presentations</summary>
+	
+	    </details>
         </section>
     </div>
 </body>

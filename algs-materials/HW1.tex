@@ -1,0 +1,39 @@
+\include{preamble.tex}
+
+\begin{document}
+
+\noindent
+   \begin{center}
+   \framebox{
+      \vbox{
+    \hbox to 5.78in { {\bf CS 530: Advanced Algorithms} \hfill  }
+       \vspace{4mm}
+       \hbox to 5.78in { {\Large \hfill Homework 1: Review and Intro to Approximation Algorithms \hfill} }
+             \vspace{2mm}
+       \hbox to 5.78in { {\it Fall 2025 \hfill } }
+      }
+   }
+   \end{center}
+
+\pagenumbering{gobble}
+
+\section{Problem 1: TSP (10 points)} 
+
+\begin{enumerate}[(a)]
+\item Show that metric TSP is equivalent to the following problem: given a weighted graph $G$, find the cheapest walk that visits every vertex at least once and returns to the starting point.
+\item In the metric path TSP problem, we are given special vertices $s$ and $t$ and need to compute the cheapest Hamiltonian path starting at $s$ and ending at $t$. Give a 2-approximation for this problem.
+\end{enumerate}
+
+\section{Problem 2: Knapsack (15 points)}
+
+\begin{enumerate}[(a)]
+\item Modify the algorithm we went over in class so that it runs in time $O(n \cdot \min(W,V))$, where $W$ is the capacity of the knapsack and $V$ is the value of the optimal solution. \textbf{Hint:} What solutions do you really need to keep around in each subproblem?
+\item Modify the algorithm so that it also returns an optimal solution, not just its value.
+\item Show how to modify the FPTAS to improve the running time to $O(n^2/\epsilon)$. \textbf{Hint:} Start by running the greedy 2 approximation for knapsack.
+\end{enumerate}
+
+\section{Problem 3: Implementation of Knapsack (10 points)}
+
+Implement the dynamic program for knapsack you obtained in 2(a) and run it on the instance posted \href{https://nathan-klein.github.io/algs-materials/knapsack.py}{here} for bounds $W=10000000$ and $W=20000000$. Turn in your code and write the answers you got here.
+
+\end{document}

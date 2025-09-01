@@ -21,7 +21,7 @@
 
 \begin{enumerate}[(a)]
 \item Show that metric TSP is equivalent to the following problem: given a weighted graph $G$, find the cheapest walk that visits every vertex at least once and returns to the starting point.
-\item In the metric path TSP problem, we are given special vertices $s$ and $t$ and need to compute the cheapest Hamiltonian path starting at $s$ and ending at $t$. Give a 2-approximation for this problem.
+\item In the metric path TSP problem, we are given special vertices $s$ and $t$ and need to compute the cheapest Hamiltonian path starting at $s$ and ending at $t$. Give a 2 approximation for this problem.
 \end{enumerate}
 
 \section{Problem 2: Knapsack (15 points)}
@@ -35,5 +35,11 @@
 \section{Problem 3: Implementation of Knapsack (10 points)}
 
 Implement the dynamic program for knapsack you obtained in 2(a) and run it on the instance posted \href{https://nathan-klein.github.io/algs-materials/knapsack.py}{here} for bounds $W=10000000$ and $W=20000000$. Turn in your code and write the answers you got here.
+
+\section{Problem 4: $k$-suppliers (10 points)}
+
+In the $k$-supplier problem, the input is a positive integer $k$ and a set of vertices $V$ equipped with a metric $c: V \times V \to \R_{\ge 0}$. The vertices is partitioned into a set of potential \textit{suppliers} $R \subseteq V$ and a set of \textit{customers} $C=V \smallsetminus R$. The goal is now to find the set $S$ of $k$ suppliers so as to minimize $\max_{i \in C} d(i, S)$ where $d(i, S)$ is the distance from customer $i$ to its closest supplier in $S$. 
+
+In other words, we want to open $k$ suppliers so as to minimize the \textit{maximum} distance any customer has to travel to a supplier. Give a 3 approximation for this problem.
 
 \end{document}

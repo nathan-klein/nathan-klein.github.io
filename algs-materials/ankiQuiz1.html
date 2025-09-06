@@ -27,8 +27,13 @@ td { page-break-after:auto; }
 td { border: 1px solid #ccc; padding: 1em; }
 .playImage { display: none; }
 </style>
-
 </style><table cellspacing=10 width=100%><tr><td width="33.333333333333336%"><center><div class="front">
+Carathéodory's Theorem
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+If \(x \in \mathbb{R}^n\) is a point in a polytope \(P\), then we can write \(x\) as a convex combination of at most \(n+1\) vertices \(v_1,\dots,v_{n+1}\) of \(P\).&nbsp;<br><br>In other words, we have \(x = \sum_{i=1}^{n+1} \lambda_i v_i\) where \(\sum_{i=1}^n \lambda_i = 1\) and \(\lambda_i \ge 0\) for all \(i\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
 Christofides' Algorithm for Metric TSP
 </div>
 <div class="front">
@@ -40,13 +45,13 @@ Convex set
 <div class="front">
 <hr id=answer>
 </div>
-A set \(S \subseteq \mathbb{R}^d\) is convex if for any two points \(a,b \in S\) and any \(\alpha \in [0,1]\), the point \(\alpha a + (1-\alpha)b\) also lies in \(S\).&nbsp;<br><br>In this class, the primary example of a convex set will be a polyhedron: the intersection of finitely many half-spaces.</center></td><td width="33.333333333333336%"><center><div class="front">
+A set \(S \subseteq \mathbb{R}^d\) is convex if for any two points \(a,b \in S\) and any \(\alpha \in [0,1]\), the point \(\alpha a + (1-\alpha)b\) also lies in \(S\).&nbsp;<br><br>In this class, the primary example of a convex set will be a polyhedron: the intersection of finitely many half-spaces.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 Definition of Approximation Algorithm
 </div>
 <div class="front">
 <hr id=answer>
 </div>
-An \(\alpha\)-approximation for an optimization problem is a polynomial time algorithm which produces a solution of cost within a factor of \(\alpha\) of the optimal solution for every instance.<br><br>A randomized \(\alpha\)-approximation instead produces a solution of expected cost within a factor of \(\alpha\) for every input.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+An \(\alpha\)-approximation for an optimization problem is a polynomial time algorithm which produces a solution of cost within a factor of \(\alpha\) of the optimal solution for every instance.<br><br>A randomized \(\alpha\)-approximation instead produces a solution of expected cost within a factor of \(\alpha\) for every input.</center></td><td width="33.333333333333336%"><center><div class="front">
 Ellipsoid method and separation oracle
 </div>
 <div class="front">
@@ -60,13 +65,13 @@ Integer Linear Program and Linear Program Relaxation
 </div>
 An Integer Linear Program (ILP) minimizes a linear objective function over a convex polyhedron \(P\). The variables are constrained to be integers.&nbsp;\[\begin{align*} \min c^Tx \\ x \in P \\ x \in \mathbb{Z}_{\ge 0}^n
 \end{align*}\]If we instead only constrain the variables to be real numbers, we get a Linear Program (LP):\[\begin{align*} \min c^Tx \\ x \in P \\ x \in \mathbb{R}_{\ge 0}^n
-\end{align*}\]Note we can flip min to max by negating the entries of \(c\), so these programs are fully general.&nbsp;<br><br>A natural extension is convex programs. Here we only need the feasible region to be a convex set and the objective function to be convex.</center></td><td width="33.333333333333336%"><center><div class="front">
+\end{align*}\]Note we can flip min to max by negating the entries of \(c\), so these programs are fully general.&nbsp;<br><br>A natural extension is convex programs. Here we only need the feasible region to be a convex set and the objective function to be convex.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 Integrality Gap
 </div>
 <div class="front">
 <hr id=answer>
 </div>
-The integrality gap of an ILP and its associated LP is the worst case ratio between the ILP OPT and the LP OPT over all instances.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+The integrality gap of an ILP and its associated LP is the worst case ratio between the ILP OPT and the LP OPT over all instances.</center></td><td width="33.333333333333336%"><center><div class="front">
 Linear algebraic view of a vertex of a polyhedron
 </div>
 <div class="front">
@@ -78,13 +83,13 @@ Metric space
 <div class="front">
 <hr id=answer>
 </div>
-A metric space \(M,d\) is defined by a set of elements \(M\) with a metric&nbsp;\(d: M \times M \to \mathbb{R}_{\ge 0}\)&nbsp;with the following four properties:<br><br>1. \(d(x,x) = 0\) for all \(x \in M\): all points have distance 0 to themselves<br>2. If \(x \not= y\) then \(d(x,y) &gt; 0\) (although this can be made arbitrarily small so often we allow a distance of 0)<br>3. \(d(x,y) = d(y,x)\) for all \(x,y \in M\)<br>4. \(d\) obeys the triangle inequality: \(d(x,z) \le d(x,y) + d(y,z)\) for all \(x,y,z \in M\).&nbsp;<br><br>A standard example of a metric space is Euclidean space, where points are tuples \((x_1,x_2) \in \mathbb{R}^2\) and \(d((x_1,x_2),(y_1,y_2)) = \sqrt{(x_1-y_1)^2 + (x_2-y_2)^2}\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+A metric space \(M,d\) is defined by a set of elements \(M\) with a metric&nbsp;\(d: M \times M \to \mathbb{R}_{\ge 0}\)&nbsp;with the following four properties:<br><br>1. \(d(x,x) = 0\) for all \(x \in M\): all points have distance 0 to themselves<br>2. If \(x \not= y\) then \(d(x,y) &gt; 0\) (although this can be made arbitrarily small so often we allow a distance of 0)<br>3. \(d(x,y) = d(y,x)\) for all \(x,y \in M\)<br>4. \(d\) obeys the triangle inequality: \(d(x,z) \le d(x,y) + d(y,z)\) for all \(x,y,z \in M\).&nbsp;<br><br>A standard example of a metric space is Euclidean space, where points are tuples \((x_1,x_2) \in \mathbb{R}^2\) and \(d((x_1,x_2),(y_1,y_2)) = \sqrt{(x_1-y_1)^2 + (x_2-y_2)^2}\).&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 Minimum spanning tree
 </div>
 <div class="front">
 <hr id=answer>
 </div>
-Given a graph \(G=(V,E)\) with weights \(w_e\) on the edges, a minimum spanning tree \(T\) is a spanning tree the the smallest possible weight \(\sum_{e \in T} w_e\).&nbsp;<br><br>A minimum spanning tree (MST) can be found using a greedy procedure called Kruskal's algorithm: keep adding the edge with the smallest weight to your MST as long as it does not create a cycle. Stop after adding \(|V|-1\) edges, at which point you must have a spanning tree if the original graph was connected.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Given a graph \(G=(V,E)\) with weights \(w_e\) on the edges, a minimum spanning tree \(T\) is a spanning tree the the smallest possible weight \(\sum_{e \in T} w_e\).&nbsp;<br><br>A minimum spanning tree (MST) can be found using a greedy procedure called Kruskal's algorithm: keep adding the edge with the smallest weight to your MST as long as it does not create a cycle. Stop after adding \(|V|-1\) edges, at which point you must have a spanning tree if the original graph was connected.</center></td><td width="33.333333333333336%"><center><div class="front">
 PTAS, FPTAS, and APX
 </div>
 <div class="front">
@@ -96,13 +101,13 @@ Polyhedron and polytope and their matrix form
 <div class="front">
 <hr id=answer>
 </div>
-A polyhedron is the intersection of a finite number of halfspaces. A polytope is a bounded polyhedron.<br><br>We will typically write a polyhedron as the set of points \(x \in \mathbb{R}^n\) obeying the equations \(Ax \ge b\) for some matrix \(A \in \mathbb{R}^{m \times n}\) and vector \(b \in \mathbb{R}^m\). Each row of \(A\) represents one of the halfspaces of the polyhedron.</center></td><td width="33.333333333333336%"><center><div class="front">
+A polyhedron is the intersection of a finite number of halfspaces. A polytope is a bounded polyhedron.<br><br>We will typically write a polyhedron as the set of points \(x \in \mathbb{R}^n\) obeying the equations \(Ax \ge b\) for some matrix \(A \in \mathbb{R}^{m \times n}\) and vector \(b \in \mathbb{R}^m\). Each row of \(A\) represents one of the halfspaces of the polyhedron.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 Psuedopolynomial time
 </div>
 <div class="front">
 <hr id=answer>
 </div>
-An algorithm runs in pseudopolynomial time if it runs in polynomial time in the input size when the numbers in the input are encoded in unary.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+An algorithm runs in pseudopolynomial time if it runs in polynomial time in the input size when the numbers in the input are encoded in unary.</center></td><td width="33.333333333333336%"><center><div class="front">
 Relax and round framework
 </div>
 <div class="front">

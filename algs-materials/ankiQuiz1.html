@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+<link rel="icon" type="image/x-icon" href="./favicon.jpg">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+
+
+<body><style>
+img { max-width: 100%; }
+tr { page-break-inside:avoid; page-break-after:auto }
+td { page-break-after:auto; }
+td { border: 1px solid #ccc; padding: 1em; }
+.playImage { display: none; }
+</style>
+
+</style><table cellspacing=10 width=100%><tr><td width="33.333333333333336%"><center><div class="front">
+Christofides' Algorithm for Metric TSP
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+As discussed in class, it's enough to find a multi-set of edges that connects the graph and has even degree at every vertex, as this edge set can always be "shortcut" to a Hamiltonian cycle of no greater cost.<br><br>Find a minimum spanning tree \(T\) of the graph: this gives connectivity. Then, compute the minimum cost perfect matching on the nodes with odd degree in \(T\): this makes all the vertices even degree.<br><br>This is a \(\frac{3}{2}\) approximation.</center></td><td width="33.333333333333336%"><center><div class="front">
+Convex set
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+A set \(S \subseteq \mathbb{R}^d\) is convex if for any two points \(a,b \in S\) and any \(\alpha \in [0,1]\), the point \(\alpha a + (1-\alpha)b\) also lies in \(S\).&nbsp;<br><br>In this class, the primary example of a convex set will be a polyhedron: the intersection of finitely many half-spaces.</center></td><td width="33.333333333333336%"><center><div class="front">
+Definition of Approximation Algorithm
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+An \(\alpha\)-approximation for an optimization problem is a polynomial time algorithm which produces a solution of cost within a factor of \(\alpha\) of the optimal solution for every instance.<br><br>A randomized \(\alpha\)-approximation instead produces a solution of expected cost within a factor of \(\alpha\) for every input.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Ellipsoid method and separation oracle
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Let \(P\) be a convex set. A separation oracle for \(P\) is&nbsp;a polynomial time procedure that given a point \(x \in \mathbb{R}^n\), either certifies that \(x \in P\) or returns a hyperplane that separates \(x\) from \(P\). In other words, it returns a vector \(a \in \mathbb{R}^n\) such that \(a^Tx &gt; a^Ty\) for all \(y \in P\).&nbsp;<br><br>The ellipsoid method is a polynomial time algorithm that can optimize over any convex set with a separation oracle. (In other words, it can solve any LP whose feasible region is convex and has a separation oracle.)<br><br>In this course, \(P\) will typically be a convex polyhedron defined by a (possibly exponential size) collection of hyperplanes, and our separation oracle will return one of these hyperplanes.</center></td><td width="33.333333333333336%"><center><div class="front">
+Integer Linear Program and Linear Program Relaxation
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+An Integer Linear Program (ILP) minimizes a linear objective function over a convex polyhedron \(P\). The variables are constrained to be integers.&nbsp;\[\begin{align*} \min c^Tx \\ x \in P \\ x \in \mathbb{Z}_{\ge 0}^n
+\end{align*}\]If we instead only constrain the variables to be real numbers, we get a Linear Program (LP):\[\begin{align*} \min c^Tx \\ x \in P \\ x \in \mathbb{R}_{\ge 0}^n
+\end{align*}\]Note we can flip min to max by negating the entries of \(c\), so these programs are fully general.&nbsp;<br><br>A natural extension is convex programs. Here we only need the feasible region to be a convex set and the objective function to be convex.</center></td><td width="33.333333333333336%"><center><div class="front">
+Integrality Gap
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+The integrality gap of an ILP and its associated LP is the worst case ratio between the ILP OPT and the LP OPT over all instances.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Linear algebraic view of a vertex of a polyhedron
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+If \(v\) is a vertex of a polyhedron in \(n\) dimensions defined by half-spaces \(Ax \ge b\), then there is a matrix \(\tilde{A}\) consisting of \(n\) linearly independent rows of \(A\) so that \(v\) is the unique solution to the equation system \(\tilde{A}x = b\).</center></td><td width="33.333333333333336%"><center><div class="front">
+Metric space
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+A metric space \(M,d\) is defined by a set of elements \(M\) with a metric&nbsp;\(d: M \times M \to \mathbb{R}_{\ge 0}\)&nbsp;with the following four properties:<br><br>1. \(d(x,x) = 0\) for all \(x \in M\): all points have distance 0 to themselves<br>2. If \(x \not= y\) then \(d(x,y) &gt; 0\) (although this can be made arbitrarily small so often we allow a distance of 0)<br>3. \(d(x,y) = d(y,x)\) for all \(x,y \in M\)<br>4. \(d\) obeys the triangle inequality: \(d(x,z) \le d(x,y) + d(y,z)\) for all \(x,y,z \in M\).&nbsp;<br><br>A standard example of a metric space is Euclidean space, where points are tuples \((x_1,x_2) \in \mathbb{R}^2\) and \(d((x_1,x_2),(y_1,y_2)) = \sqrt{(x_1-y_1)^2 + (x_2-y_2)^2}\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Minimum spanning tree
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a graph \(G=(V,E)\) with weights \(w_e\) on the edges, a minimum spanning tree \(T\) is a spanning tree the the smallest possible weight \(\sum_{e \in T} w_e\).&nbsp;<br><br>A minimum spanning tree (MST) can be found using a greedy procedure called Kruskal's algorithm: keep adding the edge with the smallest weight to your MST as long as it does not create a cycle. Stop after adding \(|V|-1\) edges, at which point you must have a spanning tree if the original graph was connected.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+PTAS, FPTAS, and APX
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+A polynomial time approximation scheme (PTAS) is a (\(1+\epsilon)\)-approximation for a problem that runs in polynomial time for every fixed \(\epsilon&gt;0\). For example, a PTAS could run in time \(n^{1/\epsilon}\).&nbsp;<br><br>A fully polynomial time approximation schme (FPTAS) is a \((1+\epsilon)\)-approximation for a problem that runs in time polynomial in the input size and \(\frac{1}{\epsilon}\). For example,&nbsp;\(\frac{n^3}{\epsilon}\).&nbsp;<br><br>For maximization problems the \(1+\epsilon\) would be replaced with \(1-\epsilon\).<br><br>A problem is in APX ("approximable") if it has a constant-factor approximation algorithm. A problem is APX-Hard if it has no PTAS unless P=NP.&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Polyhedron and polytope and their matrix form
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+A polyhedron is the intersection of a finite number of halfspaces. A polytope is a bounded polyhedron.<br><br>We will typically write a polyhedron as the set of points \(x \in \mathbb{R}^n\) obeying the equations \(Ax \ge b\) for some matrix \(A \in \mathbb{R}^{m \times n}\) and vector \(b \in \mathbb{R}^m\). Each row of \(A\) represents one of the halfspaces of the polyhedron.</center></td><td width="33.333333333333336%"><center><div class="front">
+Psuedopolynomial time
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+An algorithm runs in pseudopolynomial time if it runs in polynomial time in the input size when the numbers in the input are encoded in unary.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Relax and round framework
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Start with an ILP whose feasible solutions are the feasible solutions for your optimization problem. Make sure the linear constraints of the ILP have a poly-time separation oracle. Then, relax the ILP to an LP, which is polynomial time solvable by the ellipsoid method. After solving this LP, round the resulting solution to a feasible integer solution, ideally without losing too much in cost (or whatever measure is of interest).<div><br></div><div>This can also be applied for more general convex programs.</div></center></td></tr></table></body></html>

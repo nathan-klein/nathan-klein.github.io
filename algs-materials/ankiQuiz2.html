@@ -34,18 +34,24 @@ Apply Hoeffding to figure out the probability a poll of 1000 people is more than
 <hr id=answer>
 </div>
 Here \(a_i=0,b_i=1\) since the variables are binary. Now we just plug everything in, where \(\mu\) is the true expected value.<br>\(\mathbb{P}[|X-\mu| \ge 50] \le 2e^{-\frac{2 \cdot 50^2}{1000}} = 2e^{-5} \approx 0.013\)&nbsp;<br>so we are within 5% additive error with probability around 99%.&nbsp;<br><br>A good rule of thumb is that if you have&nbsp;\(n\) independent binary random variables, you should expect an error on the estimate of the expected value of around&nbsp;\(\frac{1}{\sqrt{n}}\) percent. So, to get an error of 5%, compute \(\frac{1}{\sqrt{n}} = 0.05\), or \(\sqrt{n}=20, n=400\), then make \(n\) a bit bigger, which is why \(n=500\) sufficed. In general it's good to triple the value you get, but for large deviation (5% is large), it's OK to just make it a little bigger.<br><br><br><br>------<br>(Note that using Chernoff bounds can help give tighter results for when the \(\mathbb{E}[X_i]\) is closer to 0 or 1, but this is the best you can do when the expected value is around 0.5.)</center></td><td width="33.333333333333336%"><center><div class="front">
+Average Case Analysis
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+In average case analysis, we define a distribution over instances and then design algorithms that work with high probability for a random instance sampled from this distribution.<br><br>For example, we showed that Max Cut in the \(G(n,\frac{1}{2})\) model has an average case\(1-o(1)\) approximation. In particular, we showed that there is an algorithm which gets a guarantee of&nbsp;\(1-o(1)\) with probability close to 1 on a graph sampled from \(G(n,\frac{1}{2})\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
 Carathéodory's Theorem
 </div>
 <div class="front">
 <hr id=answer>
 </div>
-If \(x \in \mathbb{R}^n\) is a point in a polytope \(P\), then we can write \(x\) as a convex combination of at most \(n+1\) vertices \(v_1,\dots,v_{n+1}\) of \(P\).&nbsp;<br><br>In other words, we have \(x = \sum_{i=1}^{n+1} \lambda_i v_i\) where \(\sum_{i=1}^n \lambda_i = 1\) and \(\lambda_i \ge 0\) for all \(i\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+If \(x \in \mathbb{R}^n\) is a point in a polytope \(P\), then we can write \(x\) as a convex combination of at most \(n+1\) vertices \(v_1,\dots,v_{n+1}\) of \(P\).&nbsp;<br><br>In other words, we have \(x = \sum_{i=1}^{n+1} \lambda_i v_i\) where \(\sum_{i=1}^n \lambda_i = 1\) and \(\lambda_i \ge 0\) for all \(i\).&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 Chebyshev's Inequality
 </div>
 <div class="front">
 <hr id=answer>
 </div>
-Given a random variable&nbsp;\(X\),&nbsp;\(\mathbb{P}[|X - \mathbb{E}[X]| \ge k] \le \frac{\text{Var}(X)}{k^2}\). Unlike Markov,&nbsp;\(X\)&nbsp;does not have to be non-negative.&nbsp;<br><br>&nbsp;A slightly easier version to remember:&nbsp;\(\mathbb{P}[|X-\mathbb{E}[X]| \ge k\cdot \sigma] \le \frac{1}{k^2}\), where&nbsp;\(\sigma\)&nbsp;is the standard deviation of&nbsp;\(k\). In words: the probability&nbsp;\(X\)&nbsp;is more than&nbsp;\(k\)&nbsp;standard deviations away from its mean is at most&nbsp;\(\frac{1}{k^2}\).&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Given a random variable&nbsp;\(X\),&nbsp;\(\mathbb{P}[|X - \mathbb{E}[X]| \ge k] \le \frac{\text{Var}(X)}{k^2}\). Unlike Markov,&nbsp;\(X\)&nbsp;does not have to be non-negative.&nbsp;<br><br>&nbsp;A slightly easier version to remember:&nbsp;\(\mathbb{P}[|X-\mathbb{E}[X]| \ge k\cdot \sigma] \le \frac{1}{k^2}\), where&nbsp;\(\sigma\)&nbsp;is the standard deviation of&nbsp;\(k\). In words: the probability&nbsp;\(X\)&nbsp;is more than&nbsp;\(k\)&nbsp;standard deviations away from its mean is at most&nbsp;\(\frac{1}{k^2}\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
 Christofides' Algorithm for Metric TSP
 </div>
 <div class="front">
@@ -57,19 +63,25 @@ Convex function
 <div class="front">
 <hr id=answer>
 </div>
-A function is convex if its epigraph is a convex set. The epigraph of a function is the set \(\{(a,b) \in X \times \mathbb{R} \mid r \ge f(x)\}\).<br><br>Another useful characterization is: a function is convex if its Hessian is positive semi-definite. Remember the Hessian \(\nabla^2\) is the matrix of partial derivatives with \(\nabla^2_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+A function is convex if its epigraph is a convex set. The epigraph of a function is the set \(\{(a,b) \in X \times \mathbb{R} \mid r \ge f(x)\}\).<br><br>Another useful characterization is: a function is convex if its Hessian is positive semi-definite. Remember the Hessian \(\nabla^2\) is the matrix of partial derivatives with \(\nabla^2_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}\).&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 Convex set
 </div>
 <div class="front">
 <hr id=answer>
 </div>
-A set \(S \subseteq \mathbb{R}^d\) is convex if for any two points \(a,b \in S\) and any \(\alpha \in [0,1]\), the point \(\alpha a + (1-\alpha)b\) also lies in \(S\).&nbsp;<br><br>In this class, the primary example of a convex set will be a polyhedron: the intersection of finitely many half-spaces.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+A set \(S \subseteq \mathbb{R}^d\) is convex if for any two points \(a,b \in S\) and any \(\alpha \in [0,1]\), the point \(\alpha a + (1-\alpha)b\) also lies in \(S\).&nbsp;<br><br>In this class, the primary example of a convex set will be a polyhedron: the intersection of finitely many half-spaces.</center></td><td width="33.333333333333336%"><center><div class="front">
+Covariance matrix
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+For a random vector \(x \in \mathbb{R}^n\), the covariance matrix of \(x\) is<br>\[\mathbb{E}[(x-\mathbb{E}[x])(x-\mathbb{E}[x])^T]\]<br>If the expected value of \(x\) is the 0 vector, this simplifies to<br>\[\mathbb{E}[xx^T]\]</center></td><td width="33.333333333333336%"><center><div class="front">
 Definition of Approximation Algorithm
 </div>
 <div class="front">
 <hr id=answer>
 </div>
-An \(\alpha\)-approximation for an optimization problem is a polynomial time algorithm which produces a solution of cost within a factor of \(\alpha\) of the optimal solution for every instance.<br><br>A randomized \(\alpha\)-approximation instead produces a solution of expected cost within a factor of \(\alpha\) for every input.</center></td><td width="33.333333333333336%"><center><div class="front">
+An \(\alpha\)-approximation for an optimization problem is a polynomial time algorithm which produces a solution of cost within a factor of \(\alpha\) of the optimal solution for every instance.<br><br>A randomized \(\alpha\)-approximation instead produces a solution of expected cost within a factor of \(\alpha\) for every input.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 Eigenvalue and eigenvector
 </div>
 <div class="front">
@@ -81,13 +93,13 @@ Ellipsoid method and separation oracle
 <div class="front">
 <hr id=answer>
 </div>
-Let \(P\) be a convex set. A separation oracle for \(P\) is&nbsp;a polynomial time procedure that given a point \(x \in \mathbb{R}^n\), either certifies that \(x \in P\) or returns a hyperplane that separates \(x\) from \(P\). In other words, it returns a vector \(a \in \mathbb{R}^n\) such that \(a^Tx &gt; a^Ty\) for all \(y \in P\).&nbsp;<br><br>The ellipsoid method is a polynomial time algorithm that can optimize over any convex set with a separation oracle. (In other words, it can solve any LP whose feasible region is convex and has a separation oracle.)<br><br>In this course, \(P\) will typically be a convex polyhedron defined by a (possibly exponential size) collection of hyperplanes, and our separation oracle will return one of these hyperplanes.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Let \(P\) be a convex set. A separation oracle for \(P\) is&nbsp;a polynomial time procedure that given a point \(x \in \mathbb{R}^n\), either certifies that \(x \in P\) or returns a hyperplane that separates \(x\) from \(P\). In other words, it returns a vector \(a \in \mathbb{R}^n\) such that \(a^Tx &gt; a^Ty\) for all \(y \in P\).&nbsp;<br><br>The ellipsoid method is a polynomial time algorithm that can optimize over any convex set with a separation oracle. (In other words, it can solve any LP whose feasible region is convex and has a separation oracle.)<br><br>In this course, \(P\) will typically be a convex polyhedron defined by a (possibly exponential size) collection of hyperplanes, and our separation oracle will return one of these hyperplanes.</center></td><td width="33.333333333333336%"><center><div class="front">
 Expected Value and Linearity of Expectation
 </div>
 <div class="front">
 <hr id=answer>
 </div>
-For a discrete random variable \(X\),<br>\[\mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega) \cdot \mathbb{P}(\omega)\]Alternatively,&nbsp;\(\mathbb{E}[X] = \sum_{x \in R_X} x \cdot \mathbb{P}[X=x]\), where \(R_X\) is the range of \(X\). This is often more useful.&nbsp;<br><br>For a continuous random variable with probability density function \(f\),<br>\[\mathbb{E}[X] = \int_{-\infty}^\infty x \cdot f(x) dx\]Linearity of expectation means that for any variables \(X_1,\dots,X_n\), we have<br>\[\mathbb{E}[\sum_{i=1}^n X_i] = \sum_{i=1}^n \mathbb{E}[X]\]</center></td><td width="33.333333333333336%"><center><div class="front">
+For a discrete random variable \(X\),<br>\[\mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega) \cdot \mathbb{P}(\omega)\]Alternatively,&nbsp;\(\mathbb{E}[X] = \sum_{x \in R_X} x \cdot \mathbb{P}[X=x]\), where \(R_X\) is the range of \(X\). This is often more useful.&nbsp;<br><br>For a continuous random variable with probability density function \(f\),<br>\[\mathbb{E}[X] = \int_{-\infty}^\infty x \cdot f(x) dx\]Linearity of expectation means that for any variables \(X_1,\dots,X_n\), we have<br>\[\mathbb{E}[\sum_{i=1}^n X_i] = \sum_{i=1}^n \mathbb{E}[X]\]</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 Hoeffding's Inequality
 </div>
 <div class="front">
@@ -101,13 +113,13 @@ Integer Linear Program and Linear Program Relaxation
 </div>
 An Integer Linear Program (ILP) minimizes a linear objective function over a convex polyhedron \(P\). The variables are constrained to be integers.&nbsp;\[\begin{align*} \min c^Tx \\ x \in P \\ x \in \mathbb{Z}_{\ge 0}^n
 \end{align*}\]If we instead only constrain the variables to be real numbers, we get a Linear Program (LP):\[\begin{align*} \min c^Tx \\ x \in P \\ x \in \mathbb{R}_{\ge 0}^n
-\end{align*}\]Note we can flip min to max by negating the entries of \(c\), so these programs are fully general.&nbsp;<br><br>A natural extension is convex programs. Here we only need the feasible region to be a convex set and the objective function to be convex.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+\end{align*}\]Note we can flip min to max by negating the entries of \(c\), so these programs are fully general.&nbsp;<br><br>A natural extension is convex programs. Here we only need the feasible region to be a convex set and the objective function to be convex.</center></td><td width="33.333333333333336%"><center><div class="front">
 Integrality Gap
 </div>
 <div class="front">
 <hr id=answer>
 </div>
-The integrality gap of an ILP and its associated LP is the worst case ratio between the ILP OPT and the LP OPT over all instances.</center></td><td width="33.333333333333336%"><center><div class="front">
+The integrality gap of an ILP and its associated LP is the worst case ratio between the ILP OPT and the LP OPT over all instances.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 Law of Large Numbers
 </div>
 <div class="front">
@@ -119,13 +131,13 @@ Linear algebraic view of a vertex of a polyhedron
 <div class="front">
 <hr id=answer>
 </div>
-If \(v\) is a vertex of a polyhedron in \(n\) dimensions defined by half-spaces \(Ax \ge b\), then there is a matrix \(\tilde{A}\) consisting of \(n\) linearly independent rows of \(A\) so that \(v\) is the unique solution to the equation system \(\tilde{A}x = \tilde{b}\).<br><br>It is useful to notice that the subset of rows picked in \(\tilde{A}\) must be tight constraints.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+If \(v\) is a vertex of a polyhedron in \(n\) dimensions defined by half-spaces \(Ax \ge b\), then there is a matrix \(\tilde{A}\) consisting of \(n\) linearly independent rows of \(A\) so that \(v\) is the unique solution to the equation system \(\tilde{A}x = \tilde{b}\).<br><br>It is useful to notice that the subset of rows picked in \(\tilde{A}\) must be tight constraints.</center></td><td width="33.333333333333336%"><center><div class="front">
 Markov's Inequality
 </div>
 <div class="front">
 <hr id=answer>
 </div>
-Given a non-negative random variable&nbsp;\(X\), we have&nbsp;\(\mathbb{P}[X \ge k] \le \frac{\mathbb{E}[X]}{k}\).&nbsp;<br><br>Another slightly more memorable way to write this is&nbsp;\(\mathbb{P}[X \ge k \cdot \mathbb{E}[X]] \le \frac{1}{k}\), or in words, the probability a non-negative random variable is at least&nbsp;\(k\)&nbsp;times its expectation is at most&nbsp;\(\frac{1}{k}\).</center></td><td width="33.333333333333336%"><center><div class="front">
+Given a non-negative random variable&nbsp;\(X\), we have&nbsp;\(\mathbb{P}[X \ge k] \le \frac{\mathbb{E}[X]}{k}\).&nbsp;<br><br>Another slightly more memorable way to write this is&nbsp;\(\mathbb{P}[X \ge k \cdot \mathbb{E}[X]] \le \frac{1}{k}\), or in words, the probability a non-negative random variable is at least&nbsp;\(k\)&nbsp;times its expectation is at most&nbsp;\(\frac{1}{k}\).</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 Metric space
 </div>
 <div class="front">
@@ -137,13 +149,13 @@ Minimum spanning tree
 <div class="front">
 <hr id=answer>
 </div>
-Given a graph \(G=(V,E)\) with weights \(w_e\) on the edges, a minimum spanning tree \(T\) is a spanning tree the the smallest possible weight \(\sum_{e \in T} w_e\).&nbsp;<br><br>A minimum spanning tree (MST) can be found using a greedy procedure called Kruskal's algorithm: keep adding the edge with the smallest weight to your MST as long as it does not create a cycle. Stop when every edge creates a cycle,&nbsp;at which point you must have a spanning tree if the original graph was connected.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Given a graph \(G=(V,E)\) with weights \(w_e\) on the edges, a minimum spanning tree \(T\) is a spanning tree the the smallest possible weight \(\sum_{e \in T} w_e\).&nbsp;<br><br>A minimum spanning tree (MST) can be found using a greedy procedure called Kruskal's algorithm: keep adding the edge with the smallest weight to your MST as long as it does not create a cycle. Stop when every edge creates a cycle,&nbsp;at which point you must have a spanning tree if the original graph was connected.</center></td><td width="33.333333333333336%"><center><div class="front">
 PSD Matrix
 </div>
 <div class="front">
 <hr id=answer>
 </div>
-A symmetric matrix \(A \in \mathbb{R}^{n \times n}\) is positive semidefinite, or PSD, if one of three equivalent conditions hold:<br>(1) \(A\) has no negative eigenvalues<br>(2) \(x^TAx \ge 0\) for all \(x \in \mathbb{R}^n\)<br>(3) \(A\) has a square root \(A^{1/2}\) so that \(A^{1/2}(A^{1/2})^T = A\).</center></td><td width="33.333333333333336%"><center><div class="front">
+A symmetric matrix \(A \in \mathbb{R}^{n \times n}\) is positive semidefinite, or PSD, if one of three equivalent conditions hold:<br>(1) \(A\) has no negative eigenvalues<br>(2) \(x^TAx \ge 0\) for all \(x \in \mathbb{R}^n\)<br>(3) \(A\) has a square root \(A^{1/2}\) so that \(A^{1/2}(A^{1/2})^T = A\).</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 PTAS, FPTAS, and APX
 </div>
 <div class="front">
@@ -155,7 +167,13 @@ Polyhedron and polytope and their matrix form
 <div class="front">
 <hr id=answer>
 </div>
-A polyhedron is the intersection of a finite number of halfspaces. A polytope is a bounded polyhedron.<br><br>We will typically write a polyhedron as the set of points \(x \in \mathbb{R}^n\) obeying the equations \(Ax \ge b\) for some matrix \(A \in \mathbb{R}^{m \times n}\) and vector \(b \in \mathbb{R}^m\). Each row of \(A\) represents one of the halfspaces of the polyhedron.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+A polyhedron is the intersection of a finite number of halfspaces. A polytope is a bounded polyhedron.<br><br>We will typically write a polyhedron as the set of points \(x \in \mathbb{R}^n\) obeying the equations \(Ax \ge b\) for some matrix \(A \in \mathbb{R}^{m \times n}\) and vector \(b \in \mathbb{R}^m\). Each row of \(A\) represents one of the halfspaces of the polyhedron.</center></td><td width="33.333333333333336%"><center><div class="front">
+Proof that every PSD matrix \(Y\) has a distribution with covariance matrix \(Y\)
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Let \(r_1,\dots,r_n\) be independent random variables where \(r_i\) mean 0 and variance 1.&nbsp;Then, let \(x=Y^{1/2}r\) be your random vector. Then:<br>\[\mathbb{E}[xx^T] = \mathbb{E}[Y^{1/2}rr^TY^{1/2}]=Y^{1/2}\mathbb{E}[rr^T]Y^{1/2}=Y\]where we used that \(\mathbb{E}[rr^T] = I\).&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
 Psuedopolynomial time
 </div>
 <div class="front">
@@ -174,6 +192,12 @@ Relax and round framework
 <hr id=answer>
 </div>
 Start with an ILP whose feasible solutions are the feasible solutions for your optimization problem. Make sure the linear constraints of the ILP have a poly-time separation oracle. Then, relax the ILP to an LP, which is polynomial time solvable by the ellipsoid method. After solving this LP, round the resulting solution to a feasible integer solution, ideally without losing too much in cost (or whatever measure is of interest).<div><br></div><div>This can also be applied for more general convex programs.</div></center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Spectral Norm of a Symmetric Matrix
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a symmetric matrix \(A \in \mathbb{R}^{n \times n}\), the spectral norm \(||A||_2\) is the value of the largest eigenvalue in absolute value. In other words \(||A||_2 = \max\{|\lambda_1|,|\lambda_n|\}\).<br><br>We also can show:<br>\[||A||_2 = \max_{x \in \mathbb{R}^n, x \not= 0} \frac{|x^TAx|}{x^Tx}\]so, for all \(x \in \mathbb{R}^n\),&nbsp;<br>\[|x^TAx| \le ||A||_2 \cdot ||x||_2^2\]</center></td><td width="33.333333333333336%"><center><div class="front">
 Spectral Theorem
 </div>
 <div class="front">

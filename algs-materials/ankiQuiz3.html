@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width">
+
+
+<link rel="icon" type="image/x-icon" href="./favicon.jpg">
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+
+
+<body><style>
+img { max-width: 100%; }
+tr { page-break-inside:avoid; page-break-after:auto }
+td { page-break-after:auto; }
+td { border: 1px solid #ccc; padding: 1em; }
+.playImage { display: none; }
+</style>
+</style><table cellspacing=10 width=100%><tr><td width="33.333333333333336%"><center><div class="front">
+Algorithms with predictions
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+In the algorithms with predictions framework, there is a machine learning model that predicts some unknown property, for example the future inputs of an online problem or the approximate location of an item in a binary search instance.<br><br>An algorithm is \(\beta\) robust if the competitive ratio or approximation ratio algorithm performs no worse than \(\beta\) no matter the quality of the predictions. It is \(\alpha\) consistent if as the prediction error tends to 0, the algorithm achieves a ratio of \(\alpha\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+An example of a 2-universal hash family
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a universe \(U\)&nbsp;and a range \([k]\), pick a prime \(p \ge |U|\). To generate our random hash function \(h:U \to [k]\), pick \(a \in \{1,\dots,p-1\}\) and \(b \in [p]\) independetly and uniformly at random. Let \(f_{a,b}(x) = ax+b \pmod{p}\). Then our random hash function is \(h_{a,b}(x) = f_{a,b}(x) \pmod{k}\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Apply Hoeffding to figure out the probability a poll of 1000 people is more than 5% off in its estimate. Then specify the rule of thumb for picking a sample size to get within a certain error.
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Here \(a_i=0,b_i=1\) since the variables are binary. Now we just plug everything in, where \(\mu\) is the true expected value.<br>\(\mathbb{P}[|X-\mu| \ge 50] \le 2e^{-\frac{2 \cdot 50^2}{1000}} = 2e^{-5} \approx 0.013\)&nbsp;<br>so we are within 5% additive error with probability around 99%.&nbsp;<br><br>A good rule of thumb is that if you have&nbsp;\(n\) independent binary random variables, you should expect an error on the estimate of the expected value of around&nbsp;\(\frac{1}{\sqrt{n}}\) percent. So, to get an error of 5%, compute \(\frac{1}{\sqrt{n}} = 0.05\), or \(\sqrt{n}=20, n=400\), then make \(n\) a bit bigger, which is why \(n=500\) sufficed. In general it's good to triple the value you get, but for large deviation (5% is large), it's OK to just make it a little bigger.<br><br><br><br>------<br>(Note that using Chernoff bounds can help give tighter results for when the \(\mathbb{E}[X_i]\) is closer to 0 or 1, but this is the best you can do when the expected value is around 0.5.)</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Average Case Analysis
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+In average case analysis, we define a distribution over instances and then design algorithms that work with high probability for a random instance sampled from this distribution.<br><br>For example, we showed that Max Cut in the \(G(n,\frac{1}{2})\) model has an average case\(1-o(1)\) approximation. In particular, we showed that there is an algorithm which gets a guarantee of&nbsp;\(1-o(1)\) with probability close to 1 on a graph sampled from \(G(n,\frac{1}{2})\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Carathéodory's Theorem
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+If \(x \in \mathbb{R}^n\) is a point in a polytope \(P\), then we can write \(x\) as a convex combination of at most \(n+1\) vertices \(v_1,\dots,v_{n+1}\) of \(P\).&nbsp;<br><br>In other words, we have \(x = \sum_{i=1}^{n+1} \lambda_i v_i\) where \(\sum_{i=1}^{n+1} \lambda_i = 1\) and \(\lambda_i \ge 0\) for all \(i\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Chebyshev's Inequality
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a random variable&nbsp;\(X\),&nbsp;\(\mathbb{P}[|X - \mathbb{E}[X]| \ge k] \le \frac{\text{Var}(X)}{k^2}\). Unlike Markov,&nbsp;\(X\)&nbsp;does not have to be non-negative.&nbsp;<br><br>&nbsp;A slightly easier version to remember:&nbsp;\(\mathbb{P}[|X-\mathbb{E}[X]| \ge k\cdot \sigma] \le \frac{1}{k^2}\), where&nbsp;\(\sigma\)&nbsp;is the standard deviation of&nbsp;\(k\). In words: the probability&nbsp;\(X\)&nbsp;is more than&nbsp;\(k\)&nbsp;standard deviations away from its mean is at most&nbsp;\(\frac{1}{k^2}\).&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Christofides' Algorithm for Metric TSP
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+As discussed in class, it's enough to find a multi-set of edges that connects the graph and has even degree at every vertex, as this edge set can always be "shortcut" to a Hamiltonian cycle of no greater cost.<br><br>Find a minimum spanning tree \(T\) of the graph: this gives connectivity. Then, compute the minimum cost perfect matching on the nodes with odd degree in \(T\): this makes all the vertices even degree.<br><br>This is a \(\frac{3}{2}\) approximation.</center></td><td width="33.333333333333336%"><center><div class="front">
+Competitive Ratio of an Online Algorithm
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+The competitive ratio of a (possibly randomized) online algorithm is the worst case ratio over all instances of the expected value of the algorithm's performance divided by the value of the offline optimal solution.</center></td><td width="33.333333333333336%"><center><div class="front">
+Convex function
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+A function is convex if its epigraph is a convex set. The epigraph of a function is the set \(\{(a,b) \in X \times \mathbb{R} \mid r \ge f(x)\}\).<br><br>Another useful characterization is: a function is convex if its Hessian is positive semi-definite. Remember the Hessian \(\nabla^2\) is the matrix of partial derivatives with \(\nabla^2_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}\).&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Convex set
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+A set \(S \subseteq \mathbb{R}^d\) is convex if for any two points \(a,b \in S\) and any \(\alpha \in [0,1]\), the point \(\alpha a + (1-\alpha)b\) also lies in \(S\).&nbsp;<br><br>In this class, the primary example of a convex set will be a polyhedron: the intersection of finitely many half-spaces.</center></td><td width="33.333333333333336%"><center><div class="front">
+Covariance matrix
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+For a random vector \(x \in \mathbb{R}^n\), the covariance matrix of \(x\) is<br>\[\mathbb{E}[(x-\mathbb{E}[x])(x-\mathbb{E}[x])^T]\]<br>If the expected value of \(x\) is the 0 vector, this simplifies to<br>\[\mathbb{E}[xx^T]\]</center></td><td width="33.333333333333336%"><center><div class="front">
+Definition of Approximation Algorithm
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+An \(\alpha\)-approximation for an optimization problem is a polynomial time algorithm which produces a solution of cost within a factor of \(\alpha\) of the optimal solution for every instance.<br><br>A randomized \(\alpha\)-approximation instead produces a solution of expected cost within a factor of \(\alpha\) for every input.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Dual of a Linear Program
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a linear program:<br>\[\begin{align*} \max c^Tx \\ Ax \le b \\ x \in \mathbb{R}_{\ge 0}^n
+\end{align*}\]<br>The dual of that program is the result of adding up copies of every constraint in \(A\). For each constraint \(A_ix \le b\), where \(A_i\) is the \(i\)th row of \(A\), we create a variable \(y_i\) indicating that we add&nbsp;\(y_i\) copies of this constraint. This will be one big equation with a righthand side of \(b^Ty\), so to get the best upper bound on the primal, we want to minimize this bound. For it to be a valid bound, we need to have a coefficient of at least \(c\) for every variable in the lefthand side of this equation.&nbsp;<br><br>So, the dual of that linear program is:<br>\[\begin{align*} \min b^Ty \\ A^Ty \ge c \\ y \in \mathbb{R}_{\ge 0}^n
+\end{align*}\]</center></td><td width="33.333333333333336%"><center><div class="front">
+Eigenvalue and eigenvector
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+An eigenvalue of a matrix \(A\) is a value \(\lambda \in \mathbb{R}\) so that \(Ax = \lambda x\) for some \(x \in \mathbb{R}^n\). <br><br>An eigenvector is a vector \(x \in \mathbb{R}^n\) so that there exists some \(\lambda \in \mathbb{R}\) so that \(Ax = \lambda x\).&nbsp;<br><br>Therefore we naturally say \(\lambda,x\) form an eigenvalue, eigenvector pair if \(Ax=\lambda x\).</center></td><td width="33.333333333333336%"><center><div class="front">
+Ellipsoid method and separation oracle
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Let \(P\) be a convex set. A separation oracle for \(P\) is&nbsp;a polynomial time procedure that given a point \(x \in \mathbb{R}^n\), either certifies that \(x \in P\) or returns a hyperplane that separates \(x\) from \(P\). In other words, it returns a vector \(a \in \mathbb{R}^n\) such that \(a^Tx &gt; a^Ty\) for all \(y \in P\).&nbsp;<br><br>The ellipsoid method is a polynomial time algorithm that can optimize over any convex set with a separation oracle. (In other words, it can solve any LP whose feasible region is convex and has a separation oracle.)<br><br>In this course, \(P\) will typically be a convex polyhedron defined by a (possibly exponential size) collection of hyperplanes, and our separation oracle will return one of these hyperplanes.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Expected Value and Linearity of Expectation
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+For a discrete random variable \(X\),<br>\[\mathbb{E}[X] = \sum_{\omega \in \Omega} X(\omega) \cdot \mathbb{P}(\omega)\]Alternatively,&nbsp;\(\mathbb{E}[X] = \sum_{x \in R_X} x \cdot \mathbb{P}[X=x]\), where \(R_X\) is the range of \(X\). This is often more useful.&nbsp;<br><br>For a continuous random variable with probability density function \(f\),<br>\[\mathbb{E}[X] = \int_{-\infty}^\infty x \cdot f(x) dx\]Linearity of expectation means that for any variables \(X_1,\dots,X_n\), we have<br>\[\mathbb{E}[\sum_{i=1}^n X_i] = \sum_{i=1}^n \mathbb{E}[X]\]</center></td><td width="33.333333333333336%"><center><div class="front">
+Hoeffding's Inequality
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Let \(X_1,\dots,X_n\) be independent random variables so that for all \(i\), we have \(a_i \le X_i \le b_i\) with probability 1. Let \(X=\sum_{i=1}^n X_i\). Then,&nbsp;\[\mathbb{P}[X - \mathbb{E}[X] \ge t] \le e^{-\frac{2t^2}{\sum_{i=1}^n(b_i-a_i)^2}}\]So, we have<br>\[\mathbb{P}[|X - \mathbb{E}[X]| \ge t] \le 2e^{-\frac{2t^2}{\sum_{i=1}^n(b_i-a_i)^2}}\]<br></center></td><td width="33.333333333333336%"><center><div class="front">
+Integer Linear Program and Linear Program Relaxation
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+An Integer Linear Program (ILP) minimizes a linear objective function over a convex polyhedron \(P\). The variables are constrained to be integers.&nbsp;\[\begin{align*} \min c^Tx \\ x \in P \\ x \in \mathbb{Z}_{\ge 0}^n
+\end{align*}\]If we instead only constrain the variables to be real numbers, we get a Linear Program (LP):\[\begin{align*} \min c^Tx \\ x \in P \\ x \in \mathbb{R}_{\ge 0}^n
+\end{align*}\]Note we can flip min to max by negating the entries of \(c\), so these programs are fully general.&nbsp;<br><br>A natural extension is convex programs. Here we only need the feasible region to be a convex set and the objective function to be convex.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Integrality Gap
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+The integrality gap of an ILP and its associated LP is the worst case ratio between the ILP OPT and the LP OPT over all instances.</center></td><td width="33.333333333333336%"><center><div class="front">
+Johnson Lindenstrauss Lemma
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+The JL lemma shows given \(n\) points in \(\mathbb{R}^d\), if we only care about their \(\ell_2\) distances (and up to a small approximation factor \(\epsilon\)),&nbsp;we can project them down to points in \(\mathbb{R}^k\) for \(k \in O(\log(n)/\epsilon^2)\).<br><br>Formally, given \(x_1,\dots,x_n \in \mathbb{R}^d\) and \(\epsilon &gt; 0\), we can choose \(k \in O(\log(n)/\epsilon^2)\) and a matrix \(P \in \mathbb{R}^{k \times d}\) so that if \(y_i=Px_i\) for all \(1 \le i \le n\), the points \(y_1,\dots,y_n\) approximately preserve all the \(\ell_2\) distances of \(x_1,\dots,x_n\) so that for all \(i,j\) we have:<br>\[(1-\epsilon)\|x_i-x_j\|_2 \le \|y_i-y_j\|_2\le (1+\epsilon)\|x_i-x_j\|_2\]</center></td><td width="33.333333333333336%"><center><div class="front">
+Law of Large Numbers
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Let&nbsp;\(X_1,X_2,\dots, X_n\)&nbsp;be a sequence of independent and identically distributed random variables with \(\mathbb{E}[X_i] = \mu\). Then if \(\overline{X_n} = \frac{1}{n}\sum_{i=1}^n X_i\) is the sample mean, \(\overline{X_n} \to \mu\) as \(n \to \infty\).&nbsp;<br><br>There are two ways to state this convergence. One is the weak law, which is the only one you need to know. This says that for all \(\epsilon &gt; 0\), \(\lim_{n \to \infty} \mathbb{P}[|\overline{X_n}-\mu| &gt; \epsilon] = 0\).&nbsp;<br><br><br><br>------<br>In case you're curious, the other is the strong law, which is in fact slightly different. It can be stated \(\mathbb{P}[\lim_{n \to\infty} \overline{X_n} = \mu] = 1\). This means that the probability that the sequence of random variables obtained converges to \(\mu\) is 1. There can be some sequences that do not converge, for example the sequence \(0,0,0,\dots\) for independent Bernoullis with success probabablity great than 1, but the strong law says the probability of obtaining such a sequence is 0.&nbsp;<br><br>The weak law does not preclude the possibility that every realization of the sequence \(X_1,X_2,\dots\) you obtain does not have \(\mu\) as a limit: it could jump up to values much larger than \(\mu\) infinitely many times. The strong law says that with probability 1 this does not occur.&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Linear algebraic view of a vertex of a polyhedron
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+If \(v\) is a vertex of a polyhedron in \(n\) dimensions defined by half-spaces \(Ax \ge b\), then there is a matrix \(\tilde{A}\) consisting of \(n\) linearly independent rows of \(A\) so that \(v\) is the unique solution to the equation system \(\tilde{A}x = \tilde{b}\).<br><br>It is useful to notice that the subset of rows picked in \(\tilde{A}\) must be tight constraints.</center></td><td width="33.333333333333336%"><center><div class="front">
+Locality sensitive hashing
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a radius \(r\), a distance function \(d\), an approximation factor \(\alpha \ge 1\), and probabilities \(p_{close},p_{far}\), we say a distribution over hash functions \(h:\mathbb{R}^d \to \mathbb{Z}\) is \(rho\) locality sensitive if:<br>* For all \(x,y \in \mathbb{R}^d\) with \(d(x,y) \le r\) we have \(\mathbb{P}[h(x)=h(y)] \ge p_{close}\)<br>* For all \(x,y \in \mathbb{R}^d\) with \(d(x,y) \ge \alpha r\) we have \(\mathbb{P}[h(x)=h(y)] \le p_{far}\)<br>for \(p_{close} &gt; p_{far}\) with \(p_{close} = p_{far}^\rho\).&nbsp;<br><br>By creating many copies of an LSH, it can be used to solve the radius-constrained approximate nearest neighbors problem, where you want to find a neighbor of distance \(\alpha r\) if one exists within distance \(r\). (This radius-constrained version can be in turn used to solve the approximate nearest neighbors problem.)</center></td><td width="33.333333333333336%"><center><div class="front">
+Markov's Inequality
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a non-negative random variable&nbsp;\(X\), we have&nbsp;\(\mathbb{P}[X \ge k] \le \frac{\mathbb{E}[X]}{k}\).&nbsp;<br><br>Another slightly more memorable way to write this is&nbsp;\(\mathbb{P}[X \ge k \cdot \mathbb{E}[X]] \le \frac{1}{k}\), or in words, the probability a non-negative random variable is at least&nbsp;\(k\)&nbsp;times its expectation is at most&nbsp;\(\frac{1}{k}\).</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Metric space
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+A metric space \(M,d\) is defined by a set of elements \(M\) with a metric&nbsp;\(d: M \times M \to \mathbb{R}_{\ge 0}\)&nbsp;with the following four properties:<br><br>1. \(d(x,x) = 0\) for all \(x \in M\): all points have distance 0 to themselves<br>2. If \(x \not= y\) then \(d(x,y) &gt; 0\) (although this can be made arbitrarily small so often we allow a distance of 0)<br>3. \(d(x,y) = d(y,x)\) for all \(x,y \in M\)<br>4. \(d\) obeys the triangle inequality: \(d(x,z) \le d(x,y) + d(y,z)\) for all \(x,y,z \in M\).&nbsp;<br><br>A standard example of a metric space is Euclidean space, where points are tuples \((x_1,x_2) \in \mathbb{R}^2\) and \(d((x_1,x_2),(y_1,y_2)) = \sqrt{(x_1-y_1)^2 + (x_2-y_2)^2}\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Minimum spanning tree
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a graph \(G=(V,E)\) with weights \(w_e\) on the edges, a minimum spanning tree \(T\) is a spanning tree the the smallest possible weight \(\sum_{e \in T} w_e\).&nbsp;<br><br>A minimum spanning tree (MST) can be found using a greedy procedure called Kruskal's algorithm: keep adding the edge with the smallest weight to your MST as long as it does not create a cycle. Stop when every edge creates a cycle,&nbsp;at which point you must have a spanning tree if the original graph was connected.</center></td><td width="33.333333333333336%"><center><div class="front">
+Nearest neighbor problem and the naïve algorithm
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+In the nearest neighbor problem we have a set of \(n\) points \(S \subseteq \mathbb{R}^d\) and a distance function \(d: \mathbb{R}^d \times \mathbb{R}^d \to \mathbb{R}_{\ge 0}\). Given an input \(x\), the goal is to find the point \(y \in S\) which minimizes \(d(x,y)\).&nbsp;<br><br>The naïve algorithm is to iterate over all \(n\) points and record the closest one. However this is too slow if \(n\) is huge.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+PSD Matrix
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+A symmetric matrix \(A \in \mathbb{R}^{n \times n}\) is positive semidefinite, or PSD, if one of three equivalent conditions hold:<br>(1) \(A\) has no negative eigenvalues<br>(2) \(x^TAx \ge 0\) for all \(x \in \mathbb{R}^n\)<br>(3) \(A\) has a square root \(A^{1/2}\) so that \(A^{1/2}(A^{1/2})^T = A\).</center></td><td width="33.333333333333336%"><center><div class="front">
+PTAS, FPTAS, and APX
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+A polynomial time approximation scheme (PTAS) is a (\(1+\epsilon)\)-approximation for a problem that runs in polynomial time for every fixed \(\epsilon&gt;0\). For example, a PTAS could run in time \(n^{1/\epsilon}\).&nbsp;<br><br>A fully polynomial time approximation schme (FPTAS) is a \((1+\epsilon)\)-approximation for a problem that runs in time polynomial in the input size and \(\frac{1}{\epsilon}\). For example,&nbsp;\(\frac{n^3}{\epsilon}\).&nbsp;<br><br>For maximization problems the \(1+\epsilon\) would be replaced with \(1-\epsilon\).<br><br>A problem is in APX ("approximable") if it has a constant-factor approximation algorithm. A problem is APX-Hard if it has no PTAS unless P=NP.&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Polyhedron and polytope and their matrix form
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+A polyhedron is the intersection of a finite number of halfspaces. A polytope is a bounded polyhedron.<br><br>We will typically write a polyhedron as the set of points \(x \in \mathbb{R}^n\) obeying the equations \(Ax \ge b\) for some matrix \(A \in \mathbb{R}^{m \times n}\) and vector \(b \in \mathbb{R}^m\). Each row of \(A\) represents one of the halfspaces of the polyhedron.</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Primal dual algorithm
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+In a primal dual algorithm, you iteratively construct a primal integral solution \(x\). Whenever you add value to \(x\), you add the same amount of value to a dual solution \(y\). You then guarantee that at the end of the algorithm, \(\alpha y\) is a feasible dual solution. This ensures your algorithm is&nbsp;\(\alpha\) competitive (if it's an online problem) or \(\alpha\) approximate (for a normal approximation algorithm).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Proof that every PSD matrix \(Y\) has a distribution with covariance matrix \(Y\)
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Let \(r_1,\dots,r_n\) be independent random variables where \(r_i\) mean 0 and variance 1.&nbsp;Then, let \(x=Y^{1/2}r\) be your random vector. Then:<br>\[\mathbb{E}[xx^T] = \mathbb{E}[Y^{1/2}rr^TY^{1/2}]=Y^{1/2}\mathbb{E}[rr^T]Y^{1/2}=Y\]where we used that \(\mathbb{E}[rr^T] = I\).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Prove that the probability a random point in \(B_r^d\) lies in \(B_{(1-\epsilon)}^d\) goes to 0 as \(d \to \infty\)
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+In other words, we are showing that as \(d \to \infty\), the mass of the ball moves towards its boundary. Here we use that the volume formula for a ball in \(d\) dimensions with radius \(r\) is a constant depending on \(d\) times \(r^d\).&nbsp;<br><br>For the proof, we just need to show that the ratio of the volume of the \((1-\epsilon)r\) ball over the \(r\) ball goes to 0. And it does:<br>\[\frac{\text{Vol}(B_{(1-\epsilon)r}^d)}{\text{Vol}(B_r^d)} = \frac{((1-\epsilon)r)^d}{r^d} = (1-\epsilon)^d\]</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Psuedopolynomial time
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+An algorithm runs in pseudopolynomial time if it runs in polynomial time in the input size when the numbers in the input are encoded in unary.</center></td><td width="33.333333333333336%"><center><div class="front">
+Rank-Nullity Theorem
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a matrix \(A \in \mathbb{R}^{m \times n}\),&nbsp;<br>\[\text{rank}(A) + \text{nullity}(A) = n\]where the rank of a matrix is the maximum number of linearly independent rows (or columns) and the nullity is the maximum number of linearly independent vectors&nbsp;\(x\) for which \(Ax=0\)&nbsp;(in other words, the rank of the null space of \(A\)).&nbsp;</center></td><td width="33.333333333333336%"><center><div class="front">
+Relax and round framework
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Start with an ILP whose feasible solutions are the feasible solutions for your optimization problem. Make sure the linear constraints of the ILP have a poly-time separation oracle. Then, relax the ILP to an LP, which is polynomial time solvable by the ellipsoid method. After solving this LP, round the resulting solution to a feasible integer solution, ideally without losing too much in cost (or whatever measure is of interest).<div><br></div><div>This can also be applied for more general convex programs.</div></center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+Spectral Norm of a Symmetric Matrix
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a symmetric matrix \(A \in \mathbb{R}^{n \times n}\), the spectral norm \(||A||_2\) is the value of the largest eigenvalue in absolute value. In other words \(||A||_2 = \max\{|\lambda_1|,|\lambda_n|\}\).<br><br>We also can show:<br>\[||A||_2 = \max_{x \in \mathbb{R}^n, x \not= 0} \frac{|x^TAx|}{x^Tx}\]so, for all \(x \in \mathbb{R}^n\),&nbsp;<br>\[|x^TAx| \le ||A||_2 \cdot ||x||_2^2\]</center></td><td width="33.333333333333336%"><center><div class="front">
+Spectral Theorem
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Given a symmetric matrix \(A\), there are eigenvalues \(\lambda_1,\dots,\lambda_n\) and corresponding orthonormal eigenvectors \(v_1,\dots,v_n\) such that&nbsp;<br>\[A = \sum_{i=1}^n \lambda_i v_iv_i^T\]Where recall \(v_1,\dots,v_n\) is orthonormal if \(\langle v_i, v_j\rangle = 0\) for \(i \not= j\) and \(\langle v_i, v_i \rangle = 1\).</center></td><td width="33.333333333333336%"><center><div class="front">
+The 2-universal property of hash functions
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+Let \(h: U \to [k]\) be a random hash function. Then \(h\) is 2-universal if over the randomness of \(h\), for any \(x \not= y \in U\), we have \(\mathbb{P}[h(x)=h(y)] \le \frac{1}{k}\).&nbsp;<br><br>This is weaker than the pairwise independence property, which would require that for any \(x \not=y \in U\) and any \(a,b \in [k]\) we have \(\mathbb{P}[h(x)=a,h(y)=b] = \frac{1}{k^2}\).&nbsp;</center></td></tr><tr><td width="33.333333333333336%"><center><div class="front">
+The Secretary Problem
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+In the secretary problem, there are \(n\) candidates for a job. Each candidate \(i\) has some value \(v_i\), where we can assume the values are unique for simplicity.&nbsp;<br><br>Upon interviewing a candidate, we can either hire them or permanently pass on their application. The candidates will arrive in a uniformly random order. The question is: with what probability can we ensure we select the best candidate? And the answer is \(1/e\), or about 37%, as \(n \to \infty\). The strategy that works is to wait until you have seen \(n/e\) candidates, and then take the first candidate that is the best of everyone you have seen so far.</center></td><td width="33.333333333333336%"><center><div class="front">
+Variance and Variance Properties
+</div>
+<div class="front">
+<hr id=answer>
+</div>
+The variance of a random variable \(X\) is \(\mathbb{E}[(X-\mathbb{E}[X])^2]\). This is also equal to the often more convenient expression \(\mathbb{E}[X^2] - \mathbb{E}[X]^2\).&nbsp;<br><br>We have \(\text{Var}(\sum_{i=1}^n X_i) = \sum_{i=1}^n \text{Var}(X_i)\) if \(X_1,\dots,X_n\) are pairwise independent. Also, \(\text{Var}(aX+b) = a^2\text{Var}(X)\) for \(a,b \in \mathbb{R}\).</center></td></tr></table></body></html>

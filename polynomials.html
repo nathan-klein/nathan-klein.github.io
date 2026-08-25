@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Geometry of Polynomials</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.jpg">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+    integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+    integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz"
+    crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+    integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 230px;
+        }
+
+        .fig {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 18px 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1e4a7c;
+            color: white;
+            text-align: center;
+            padding: 3px 3px;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .container {
+            margin: 20px auto;
+            margin-top: 0px;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 7px;
+            text-align: left;
+            border-bottom: 1px solid #010101;
+            border-right: 1px solid #010101;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .materials a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .materials a:hover {
+            text-decoration: underline;
+        }
+        details > summary {
+            margin-bottom: 8px;
+        }
+        details {
+            margin-bottom: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+    <div class="image-container">
+        <img src="polynomials/interlacing.png" alt="A polynomial and two of its derivatives." height="220px">
+    </div>
+        <h1>CS 599: The Geometry of Polynomials in Algorithms (Fall 2026)</h1>
+    </header>
+
+    <nav>
+        <a href="./index.html">Home</a>
+        <a href="#overview">Overview</a>
+        <a href="#homework">Homework</a>
+        <a href="#textbooks">Resources</a>
+        <a href="#schedule">Schedule</a>
+    </nav>
+
+    <div class="container">
+        <section id="info">
+            <h2>Course Information</h2>
+            <p><b>Instructor:</b> <a href="https://nathan-klein.github.io/">Nathan Klein</a></p>
+            <p><b>Syllabus:</b> <a href="./polynomials/Syllabus.pdf">Link</a></p>
+            <p><b>Lectures:</b> Tuesday and Thursday, 3:30 - 4:45pm in CAS 320</p>
+            <p><b>Office Hours:</b> Monday 3 - 4:30, Thursday 2 - 3:30, and by appointment, in CDS 1026</p>
+            <p><b>Prerequisites:</b> Strong undergraduate-level familiarity with probability, multivariable calculus, linear algebra, and a little analysis. Mathematically mature undergraduates are welcome.</p>
+            <p><b>Grading:</b> Homework (20%), participation (20%), quizzes (20%), and a final project (40%).</p>
+        </section>
+
+        <section id="overview">
+            <h2>Overview</h2>
+            
+
+            <p>The starting point of the field is to encode combinatorial objects as multivariate polynomials. Typically, we will
+                encode discrete probability distributions. For example, the distribution over \(\{e,f\}\) which selects
+                \(\{e\}\) with probability \(1/2\) and \(\{e,f\}\) with probability \(1/2\) is encoded as \(p(x,y) =
+                \frac{1}{2}x+\frac{1}{2}xy\). We will then analyze the zero-free regions of these polynomials in \(\mathbb{C}^n\). 
+                These regions often have underlying geometry, hence the name of the course. We will study how this geometry  
+                can help us understand the original combinatorial object.
+
+            <p>We will discuss some important recent results that use ideas from this field, such as the resolution of the 
+                Kadison-Singer problem, the proof of Mason's conjecture, and a slightly improved approximation for metric TSP. 
+
+                <details><summary>More Details</summary>
+                For an example of this geometry, in the univariate case, we have the Gauss-Lucas theorem.  
+                Below is a univariate polynomial \(p\) along with two of its derivatives:</p>
+
+            <div class="fig">
+                <img src="polynomials/interlacing.png" alt="A univariate polynomial and its derivatives." height="250px">
+            </div>
+
+            <p>We can see the geometry of the roots here: the set of roots of \(p'\) interlace the roots of \(p\). And below is the convex hull of the roots of \(p\) and its first four derivatives graphed in the complex
+                plane. The Gauss-Lucas theorem states that for any polynomial \(p\) the convex hull of the roots of \(p'\) is contained in the
+                convex hull of the roots of \(p\). So, applying it repeatedly gives a nested family of convex hulls,
+                one for each derivative.</p>
+
+            <div class="fig">
+                <img src="polynomials/Gauss-Lucas.png" alt="The roots of a polynomial and its first four derivatives plotted in the complex plane." height="270px">
+            </div>
+
+            <p>There is a natural generalization of this theorem to multivariate polynomials. It turns out that
+                distributions whose encodings as polynomials have sufficiently structured zero-free regions must also
+                have many other nice properties. For example, in the univariate case we can study real-rooted
+                polynomials. Newton's inequalities tell us that the coefficients of any real-rooted polynomial are ultra
+                log-concave, like the following:</p>
+
+            <div class="fig">
+                <img src="polynomials/Newton.png" alt="The coefficients of a real-rooted polynomial." height="240px">
+            </div>
+
+            <p>This in turn tells us that any discrete random variable whose encoding (i.e., the encoding of its
+                probability mass function) is real rooted is concentrated around its expectation.</p>
+
+            <p>After learning the basics about real-rooted polynomials and their multivariate analogs, real stable
+                polynomials, we will see how this theory can be applied to problems in math and TCS.
+            </details>
+        </section>
+
+        <section id="homework">
+            <h2>Homework</h2>
+            <p>Problem sets will be posted here over the course of the semester.</p>
+            <ul>
+                <li>Homework 1 (due 9/22)</li>
+            </ul>
+        </section>
+
+        <section id="textbooks">
+            <h2>Surveys and Background Reading</h2>
+            <ul>
+                <li><a href="https://www.ams.org/journals/bull/2011-48-01/S0273-0979-2010-01321-5/S0273-0979-2010-01321-5.pdf">Multivariate
+                        Stable Polynomials: Theory and Applications (Wagner)</a></li>
+                <li><a href="https://epubs.siam.org/doi/epdf/10.1137/25M1826111">Polynomial Paradigm and Algorithmic Applications (Shayan Oveis Gharan)</a></li>
+                <li><a href="https://www.math.upenn.edu/~pemantle/papers/hyperbolic.pdf">Hyperbolicity and Stable
+                        Polynomials in Combinatorics and Probability (Pemantle)</a>
+                <li><a href="https://arxiv.org/abs/1410.6601">Unimodality, Log-Concavity, Real-Rootedness and Beyond
+                        (Brändén)</a></li>
+                <li><a href="https://math.berkeley.edu/~bernd/branden.pdf">Notes on Hyperbolicity Cones
+                        (Brändén)</a></li>
+                <li><a href="https://arxiv.org/abs/1408.4421">Ramanujan Graphs and the Solution of the Kadison-Singer
+                        Problem (Marcus, Spielman, and Srivastava)</a></li>
+                <li><a href="https://arxiv.org/abs/0707.2340">Negative Dependence and the Geometry of Polynomials
+                        (Borcea, Brändén, and Liggett)</a></li>
+                <li><a href="https://arxiv.org/abs/1902.03719">Lorentzian Polynomials (Brändén and Huh)</a></li>
+            </ul>
+        </section>
+
+        <section id="courses">
+            <h2>Related Courses</h2>
+            <ul>
+                <li><a href="https://homes.cs.washington.edu/~shayan/courses/polynomials/">Polynomial Paradigm in
+                        Algorithm Design (Oveis Gharan)</a></li>
+                <li><a href="https://math.berkeley.edu/~nikhil/courses/270/">The Geometry of Polynomials in Algorithms,
+                        Combinatorics, and Probability (Srivastava)</a>, and its
+                    <a href="https://math.berkeley.edu/~nikhil/courses/270/open.pdf">list of open problems</a></li>
+                <li><a href="https://theory.stanford.edu/~jvondrak/MATH233A-2018/Math233A.html">Polynomial Methods in
+                        Combinatorics and Optimization (Vondrák)</a></li>
+            </ul>
+        </section>
+
+        <section id="schedule">
+            <h2>Course Schedule</h2>
+
+            <h3>Weeks 1, 2, and 3: Univariate Polynomials and Real-Rootedness</h3>
+
+            <details>
+                <summary><b>Lecture 1, Thursday 9/3:</b> Admin, Three Views of a Polynomial, Real Rooted Polynomials</summary>
+                Related lectures:
+                <a href="https://homes.cs.washington.edu/~shayan/courses/polynomials/poly-lecture-1.pdf">[Oveis Gharan]</a>
+            </details>
+
+            <details>
+                <summary><b>Lecture 2, Tuesday 9/8:</b> Closure Properties and Newton's Inequalities</summary>
+                Related lectures:
+                <a href="https://math.berkeley.edu/~nikhil/courses/270/lec1.pdf">[Srivastava]</a>
+            </details>
+
+            <details>
+                <summary><b>Lecture 3, Thursday 9/10:</b> Interlacing</summary>
+
+                Reading:
+                <a href="https://www.ams.org/journals/bull/2011-48-01/S0273-0979-2010-01321-5/S0273-0979-2010-01321-5.pdf">[Wagner, Section 2]</a>.
+                Related lectures: <a href="https://math.berkeley.edu/~nikhil/courses/270/lec1.pdf">[Srivastava]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 4, Tuesday 9/15:</b> The Matching Polynomial and the Heilmann-Lieb Theorem</summary>
+
+                Related lectures:
+                <a href="https://math.berkeley.edu/~nikhil/courses/270/lec1.pdf">[Srivastava]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 5, Thursday 9/17:</b> Overflow, Quiz 1, Open Questions, and Work Session</summary>
+
+                We will finish the previous lecture and give time for questions on what we have covered so far. Then we
+                will have a short quiz on the flashcards posted for this lecture, after which some open questions will be
+                discussed. Time permitting, there will be some group work on the homework.
+            </details>
+
+            <h3>Weeks 4, 5, and 6: Real Stable Polynomials and Negative Dependence</h3>
+
+            <details>
+                <summary><b>Lecture 6, Tuesday 9/22:</b> Real Stable Polynomials</summary>
+
+                Reading:
+                <a href="https://www.ams.org/journals/bull/2011-48-01/S0273-0979-2010-01321-5/S0273-0979-2010-01321-5.pdf">[Wagner, Section 2]</a>.
+                Related lectures:
+                <a href="https://homes.cs.washington.edu/~shayan/courses/polynomials/poly-lecture-2.pdf">[Oveis Gharan]</a>
+                <a href="https://math.berkeley.edu/~nikhil/courses/270/lec2.pdf">[Srivastava]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 7, Thursday 9/24:</b> Multiaffine Stable Polynomials, the Lieb-Sokal Lemma, and Polarization</summary>
+
+               Reading:
+                <a href="https://www.ams.org/journals/bull/2011-48-01/S0273-0979-2010-01321-5/S0273-0979-2010-01321-5.pdf">[Wagner, Section 3]</a>.
+                Related lectures: <a href="https://math.berkeley.edu/~nikhil/courses/270/lec3.pdf">[Srivastava]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 8, Tuesday 9/29:</b> Grace-Walsh-Szegő and the Characterization of Stability Preservers</summary>
+                Reading:
+                <a href="https://www.ams.org/journals/bull/2011-48-01/S0273-0979-2010-01321-5/S0273-0979-2010-01321-5.pdf">[Wagner, Sections 4 and 5]</a>;
+            </details>
+
+            <details>
+                <summary><b>Lecture 9, Thursday 10/1:</b> Strongly Rayleigh Distributions</summary>
+
+                Reading:
+                <a href="https://www.ams.org/journals/bull/2011-48-01/S0273-0979-2010-01321-5/S0273-0979-2010-01321-5.pdf">[Wagner, Section 7]</a>. Related lectures:
+                <a href="https://homes.cs.washington.edu/~shayan/courses/polynomials/poly-lecture-4.pdf">[Oveis Gharan]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 10, Tuesday 10/6:</b> Negative Association and Concentration</summary>
+
+            </details>
+
+            <details>
+                <summary><b>Lecture 11, Thursday 10/8:</b> Overflow, Quiz 2, Open Questions, and Work Session</summary>
+
+                We will finish the previous lecture and give time for questions on what we have covered about real stable
+                polynomials. After a short quiz, some open questions will be discussed.
+            </details>
+
+            <h3>Weeks 7, 8, and 9: Capacity, Entropy, and Approximation Algorithms</h3>
+
+            <details>
+                <summary><b>No class on Tuesday 10/13:</b> BU is on a Monday schedule</summary>
+            </details>
+
+            <details>
+                <summary><b>Lecture 12, Thursday 10/15:</b> Gurvits's Capacity Method and the van der Waerden Conjecture</summary>
+                Related lectures:
+                <a href="https://homes.cs.washington.edu/~shayan/courses/polynomials/poly-lecture-3.pdf">[Oveis Gharan]</a>
+                <a href="https://math.berkeley.edu/~nikhil/courses/270/lec5.pdf">[Srivastava]</a>
+            </details>
+
+            <details>
+                <summary><b>Lecture 13, Tuesday 10/20:</b> Maximum Entropy Distributions over Spanning Trees</summary>
+                Related lectures:
+                <a href="https://homes.cs.washington.edu/~shayan/courses/polynomials/poly-lecture-5.pdf">[Oveis Gharan]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 14, Thursday 10/22:</b> Thin Trees and Asymmetric TSP</summary>
+            </details>
+
+            <details>
+                <summary><b>Lecture 15, Tuesday 10/27:</b> Overflow, Quiz 3, Open Questions, and Work Session</summary>
+
+                We will finish the previous lecture and give time for questions on the algorithmic applications. After a
+                short quiz we will discuss what's known about the problems we've discussed in this section. 
+            </details>
+
+            <h3>Weeks 9, 10, and 11: Interlacing Families and the Kadison-Singer Problem</h3>
+
+            <details>
+                <summary><b>Lecture 16, Thursday 10/29:</b> Interlacing Families</summary>
+                Related lectures:
+                <a href="https://math.berkeley.edu/~nikhil/courses/270/lec6.pdf">[Srivastava]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 17, Tuesday 11/3:</b> Mixed Characteristic Polynomials</summary>
+                Related lectures:
+                <a href="https://math.berkeley.edu/~nikhil/courses/270/lec8.pdf">[Srivastava]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 18, Thursday 11/5:</b> The Multivariate Barrier Method</summary>
+                Related lectures:
+                <a href="https://math.berkeley.edu/~nikhil/courses/270/lec9.pdf">[Srivastava]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 19, Tuesday 11/10:</b> Kadison-Singer</summary>
+            Related lectures:
+                <a href="https://math.berkeley.edu/~nikhil/courses/270/lec10.pdf">[Srivastava]</a>. Also see the
+                <a href="https://arxiv.org/abs/1408.4421">ICM survey</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 20, Thursday 11/12:</b> Overflow, Quiz 4, Open Questions, and Work Session</summary>
+            After a short quiz we will discuss open questions.
+            </details>
+
+            <h3>Weeks 12 and 13: Hyperbolic and Log-Concave Polynomials</h3>
+
+            <details>
+                <summary><b>Lecture 21, Tuesday 11/17:</b> Hyperbolic Polynomials and Hyperbolicity Cones</summary>
+                Related lectures:
+                <a href="https://homes.cs.washington.edu/~shayan/courses/polynomials/poly-lecture-7.pdf">[Oveis Gharan]</a>
+                <a href="https://math.berkeley.edu/~nikhil/courses/270/lec11.pdf">[Srivastava]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 22, Thursday 11/19:</b> Completely Log-Concave and Lorentzian Polynomials</summary>
+                Related lectures:
+                <a href="https://homes.cs.washington.edu/~shayan/courses/polynomials/poly-lecture-8.pdf">[Oveis Gharan]</a>.
+            </details>
+
+            <details>
+                <summary><b>Lecture 23, Tuesday 11/24:</b> Matroids, Complete Log-Concavity, and Mason's Conjecture</summary>
+                Related lectures:
+                <a href="https://homes.cs.washington.edu/~shayan/courses/polynomials/poly-lecture-10.pdf">[Oveis Gharan]</a>.
+                For the Hodge theoretic route to related results, see
+                <a href="https://arxiv.org/abs/1511.02888">[Adiprasito, Huh, and Katz]</a>.
+            </details>
+
+            <details>
+                <summary><b>Thursday 11/26: No class, Thanksgiving recess</b></summary>
+
+                Time to relax.
+            </details>
+
+            <h3>Weeks 14 and 15: Final Projects</h3>
+
+            <details>
+                <summary><b>Tuesday 12/1:</b> Final Project Presentations</summary>
+
+                 Lectures from your classmates.
+            </details>
+
+            <details>
+                <summary><b>Thursday 12/3:</b> Final Project Presentations</summary>
+                
+                Lectures from your classmates.
+            </details>
+
+            <details>
+                <summary><b>Tuesday 12/8:</b> Final Project Presentations</summary>
+
+                Lectures from your classmates.
+            </details>
+
+            <details>
+                <summary><b>Thursday 12/10:</b> Final Project Presentations</summary>
+
+                Lectures from your classmates and the end of the course!
+            </details>
+
+        </section>
+    </div>
+</body>
+
+</html>
